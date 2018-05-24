@@ -120,4 +120,20 @@ map.on('load', function () {
         }
     });
 
+  });
+
+  // When the user moves their mouse over the states-fill layer, we'll update the filter in
+  // the state-fills-hover layer to only show the matching state, thus making a hover effect.
+  map.on("mousemove", "district3", function(e) {
+    map.addLayer({
+      "id": "district3-hover",
+      "type": "fill",
+      "source": "district3",
+      "layout": {},
+      "paint": {
+          "fill-color": "#C04ABC",
+          "fill-opacity": 1
+      },
+  });
+
 });
