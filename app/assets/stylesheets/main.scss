@@ -80,3 +80,12 @@ a {
   margin: 0 0 23px 0;
   color: $link;
   }
+
+  .center {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
