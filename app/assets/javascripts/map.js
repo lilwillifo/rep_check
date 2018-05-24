@@ -133,7 +133,6 @@ map.on('load', function () {
       "paint": {
           "fill-color": "#C04ABC",
           "fill-opacity": 1
-      },
+        },
+    });
   });
-
-});
