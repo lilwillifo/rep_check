@@ -14,6 +14,14 @@ html {
   margin-right: 30px;
 }
 
+#map { position:absolute;
+       top:35%;
+       left: 30%;
+       bottom:20px;
+       width:40%;
+       border-radius: 10px;
+     }
+
 nav {
   display: flex;
   flex-direction: row;
@@ -71,4 +79,13 @@ a {
   line-height: 23px;
   margin: 0 0 23px 0;
   color: $link;
+  }
+
+  .center {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
   }
