@@ -120,27 +120,4 @@ map.on('load', function () {
         }
     });
 
-    // map.addLayer({
-    //     "id": "district1-hover",
-    //     "type": "fill",
-    //     "source": ,
-    //     "layout": {},
-    //     "paint": {
-    //       'fill-color': '#FB4D3D',
-    //       'fill-opacity': 1
-    //     },
-    //     "filter": ["==", "name", ""]
-    // });
-    //
-    // // When the user moves their mouse over the states-fill layer, we'll update the filter in
-    // // the state-fills-hover layer to only show the matching state, thus making a hover effect.
-    // map.on("mousemove", "district1", function(e) {
-    //     map.setFilter("district1-hover", ["==", "name", e.features[0].properties.name]);
-    // });
-    //
-    // // Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-    // map.on("mouseleave", "state-fills", function() {
-    //     map.setFilter("state-fills-hover", ["==", "name", ""]);
-    // });
-
 });
