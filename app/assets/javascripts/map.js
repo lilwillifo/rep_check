@@ -3,10 +3,15 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/lilwillifo/cjhjyrj7e332m2socy4h6hcya',
   center: [-105.58887, 39.2501],
-  zoom: 5.8
+  zoom: 6.5
 });
 
+
+
 map.on('load', function () {
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
 
   map.addSource('district1', {
     type: 'geojson',
@@ -43,7 +48,7 @@ map.on('load', function () {
     data: 'https://raw.githubusercontent.com/unitedstates/districts/gh-pages/cds/2016/CO-7/shape.geojson'
   });
 
-    map.addLayer({
+  map.addLayer({
         'id': 'district1',
         'type': 'fill',
         'source': 'district1',
@@ -119,5 +124,39 @@ map.on('load', function () {
             'fill-opacity': 0.3
         }
     });
+  });
 
-});
+  var district1 = new mapboxgl.Popup({closeOnClick: false})
+        .setLngLat([-104.9903, 39.7392])
+        .setHTML("<a href='representatives/1'>1</a>")
+        .addTo(map);
+
+  var district2 = new mapboxgl.Popup({closeOnClick: false})
+        .setLngLat([-105.5217, 40.3772])
+        .setHTML("<a href='representatives/2'>2</a>")
+        .addTo(map);
+
+  var district3 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-107.849520, 39.113329])
+      .setHTML("<a href='representatives/3'>3</a>")
+      .addTo(map);
+
+  var district4 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-102.914130, 39.003565])
+      .setHTML("<a href='representatives/4'>4</a>")
+      .addTo(map);
+
+  var district5 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-104.8214, 38.8339])
+      .setHTML("<a href='representatives/5'>5</a>")
+      .addTo(map);
+
+  var district6 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-104.8319, 39.7294])
+      .setHTML("<a href='representatives/6'>6</a>")
+      .addTo(map);
+
+  var district7 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-105.2211, 39.7555])
+      .setHTML("<a href='representatives/7'>7</a>")
+      .addTo(map);
