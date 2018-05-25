@@ -12,7 +12,7 @@ map.on('load', function () {
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
-  
+
   map.addSource('district1', {
     type: 'geojson',
     data: 'https://raw.githubusercontent.com/unitedstates/districts/gh-pages/cds/2016/CO-1/shape.geojson'
@@ -128,35 +128,35 @@ map.on('load', function () {
 
   var district1 = new mapboxgl.Popup({closeOnClick: false})
         .setLngLat([-104.9903, 39.7392])
-        .setHTML('1')
+        .setHTML("<a href='representatives/1'>1</a>")
         .addTo(map);
 
   var district2 = new mapboxgl.Popup({closeOnClick: false})
         .setLngLat([-105.5217, 40.3772])
-        .setHTML('2')
+        .setHTML("<a href='representatives/2'>2</a>")
         .addTo(map);
 
   var district3 = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat([-107.849520, 39.113329])
-      .setHTML('3')
+      .setHTML("<a href='representatives/3'>3</a>")
       .addTo(map);
 
   var district4 = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat([-102.914130, 39.003565])
-      .setHTML('4')
+      .setHTML("<a href='representatives/4'>4</a>")
       .addTo(map);
 
   var district5 = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat([-104.8214, 38.8339])
-      .setHTML('5')
+      .setHTML("<a href='representatives/5'>5</a>")
       .addTo(map);
 
   var district6 = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat([-104.8319, 39.7294])
-      .setHTML('6')
+      .setHTML("<a href='representatives/6'>6</a>")
       .addTo(map);
 
   var district7 = new mapboxgl.Popup({closeOnClick: false})
       .setLngLat([-105.2211, 39.7555])
-      .setHTML('7')
+      .setHTML("<a href='representatives/7'>7</a>")
       .addTo(map);
