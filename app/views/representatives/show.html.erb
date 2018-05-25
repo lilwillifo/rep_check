@@ -3,14 +3,23 @@
 <div class="all_cards">
 
   <div class="card">
-    <h2>Dianna DeGette</h2>
-    <p>Democrat</p>
+    <%= image_tag src='diana.jpg', class: 'image'  %>
+    <h1>Diana DeGette</h1>
+    <h2>Democrat</h2>
+    <div class="contact-info">
+      <div class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to 'facebook.com/DianaDeGette', 'http://www.facebook.com/DianaDeGette'%></div>
+      <div class='contact-details'><i class="fab fa-twitter"></i> <%= link_to '@DianaDeGette', 'http://www.twitter.com/DianaDeGette'%></div>
+      <div class='contact-details'><i class="fas fa-envelope"></i> DianaDeGette@gmail.com</div>
+      <div class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to 'DianaDeGette.com', 'http://www.DianaDeGette.com'%></div>
+    </div>
+
+
   </div>
 
   <div class='card'>
-    <h2>Voted with Democratic Party on 80% of Bills</h2>
+    <h1>Voted with Democratic Party on <b>80%</b> of Bills</h1>
 
-    <p>Broke Party Lines on These Issues:</p>
+    <h2>Broke Party Lines on These Issues:</h2>
       <ul>
         <li> Guns (3 Bills) </li>
         <li> Climate (2 Bills) </li>
