@@ -6,8 +6,13 @@ var map = new mapboxgl.Map({
   zoom: 5.8
 });
 
+
+
 map.on('load', function () {
 
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+  
   map.addSource('district1', {
     type: 'geojson',
     data: 'https://raw.githubusercontent.com/unitedstates/districts/gh-pages/cds/2016/CO-1/shape.geojson'
@@ -43,7 +48,7 @@ map.on('load', function () {
     data: 'https://raw.githubusercontent.com/unitedstates/districts/gh-pages/cds/2016/CO-7/shape.geojson'
   });
 
-    map.addLayer({
+  map.addLayer({
         'id': 'district1',
         'type': 'fill',
         'source': 'district1',
@@ -119,20 +124,39 @@ map.on('load', function () {
             'fill-opacity': 0.3
         }
     });
-
   });
 
-  // When the user moves their mouse over the states-fill layer, we'll update the filter in
-  // the state-fills-hover layer to only show the matching state, thus making a hover effect.
-  map.on("mousemove", "district3", function(e) {
-    map.addLayer({
-      "id": "district3-hover",
-      "type": "fill",
-      "source": "district3",
-      "layout": {},
-      "paint": {
-          "fill-color": "#C04ABC",
-          "fill-opacity": 1
-        },
-    });
-  });
+  var district1 = new mapboxgl.Popup({closeOnClick: false})
+        .setLngLat([-104.9903, 39.7392])
+        .setHTML('1')
+        .addTo(map);
+
+  var district2 = new mapboxgl.Popup({closeOnClick: false})
+        .setLngLat([-105.5217, 40.3772])
+        .setHTML('2')
+        .addTo(map);
+
+  var district3 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-107.849520, 39.113329])
+      .setHTML('3')
+      .addTo(map);
+
+  var district4 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-102.914130, 39.003565])
+      .setHTML('4')
+      .addTo(map);
+
+  var district5 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-104.8214, 38.8339])
+      .setHTML('5')
+      .addTo(map);
+
+  var district6 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-104.8319, 39.7294])
+      .setHTML('6')
+      .addTo(map);
+
+  var district7 = new mapboxgl.Popup({closeOnClick: false})
+      .setLngLat([-105.2211, 39.7555])
+      .setHTML('7')
+      .addTo(map);
