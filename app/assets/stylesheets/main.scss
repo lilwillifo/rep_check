@@ -82,10 +82,24 @@ a {
   }
 
   .center {
-    position: absolute;
     top: 22%;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
     text-align: center;
+  }
+
+  .all_cards {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+
   }
