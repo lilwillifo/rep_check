@@ -53,7 +53,7 @@ nav {
 h1 {
     font-family: 'Dosis', sans-serif;
     font-weight: 400;
-    line-height: 46px;
+    line-height: 80%;
     font-size: 40px;
     margin: 0 0 23px 0;
     color: $title;
@@ -61,8 +61,8 @@ h1 {
 h2 {
     font-family: 'Dosis', sans-serif;
     font-weight: 800;
+    line-height: 50%;
     font-size: 18px;
-    line-height: 23px;
     margin: 0 0 23px 0;
     color: $subheading;
     }
@@ -104,17 +104,17 @@ a {
     border-style: dashed;
     border-width: 3px;
     border-color: $subheading;
+  }
 
-    .sub-card {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-      margin: 10px;
-      border-style: solid;
-      border-width: 1px;
-      border-color: $title;
-    }
+  .sub-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $title;
   }
 
   .contact-info {
@@ -130,3 +130,49 @@ a {
     height: 300px;
     width: 250px;
   }
+
+  li {
+    line-height: 5%;
+  }
+
+  ul{
+    margin: 0;
+  }
+
+  button {
+    background-color: $subheading;
+    color: white;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: $main-text;
+    padding: 10px 10px;
+    margin: none;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

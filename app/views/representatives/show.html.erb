@@ -1,7 +1,6 @@
 <h1 class='center'>Diana DeGette - 1st Congressional District</h1>
 
 <div class="all_cards">
-
   <div class="card">
     <%= image_tag src='diana.jpg', class: 'image'  %>
     <h1>Diana DeGette</h1>
@@ -12,8 +11,6 @@
       <div class='contact-details'><i class="fas fa-envelope"></i> DianaDeGette@gmail.com</div>
       <div class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to 'DianaDeGette.com', 'http://www.DianaDeGette.com'%></div>
     </div>
-
-
   </div>
 
   <div class='card'>
@@ -25,6 +22,49 @@
           <li> Climate (2 Bills) </li>
           <li> Taxation (1 Bills) </li>
         </ul>
+    </div>
+    <div class='sub-card'>
+      <h2>Tweets</h2>
+    </div>
+  </div>
+
+  <div class='card'>
+    <h1>Votes</h1>
+    <div class='sub-card'>
+      <table>
+        <tr>
+          <th><button>Democrat</button></th>
+          <th><button>Republican</button></th>
+          <th><div class="dropdown">
+              <button>Category</button>
+              <div class="dropdown-content">
+                <a href="#">Guns</a>
+                <a href="#">Climate</a>
+                <a href="#">Taxation</a>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div class="dropdown">
+              <button>Year</button>
+              <div class="dropdown-content">
+                <a href="#">2017</a>
+                <a href="#">2016</a>
+                <a href="#">2015</a>
+                <a href="#">2014</a>
+                <a href="#">2013</a>
+                <a href="#">2012</a>
+              </div>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <td><i class="far fa-square"></i></td>
+          <td><i class="far fa-check-square"></i></td>
+          <td><a href='https://www.govtrack.us/congress/bills/115/hr315/summary'>HR 315: Improving Access to Maternity Care Act</td>
+            <td>2017</td>
+        </tr>
+      </table>
     </div>
   </div>
 
