@@ -66,7 +66,7 @@ h2 {
     margin: 0 0 23px 0;
     color: $subheading;
     }
-p, li {
+p, li, td {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     line-height: 23px;
@@ -175,4 +175,8 @@ a {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+table {
+  border-spacing: 10px;
 }
