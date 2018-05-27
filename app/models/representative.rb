@@ -8,7 +8,13 @@ class Representative
     service.name
   end
   def party
-    service.party
+    if service.party == 'D'
+      'Democrat'
+    elsif service.party == 'R'
+      'Republican'
+    else
+      'Other'
+    end
   end
   def facebook
     service.facebook

@@ -3,12 +3,12 @@
 <div class="all_cards">
   <div class="card">
     <%= image_tag src='diana.jpg', class: 'image'  %>
-    <h1>Diana DeGette</h1>
-    <h2>Democrat</h2>
+    <h1><%= @representative.name %></h1>
+    <h2><%= @representative.party %></h2>
     <div class="contact-info">
-      <div class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to 'facebook.com/DianaDeGette', 'http://www.facebook.com/DianaDeGette'%></div>
-      <div class='contact-details'><i class="fab fa-twitter"></i> <%= link_to '@DianaDeGette', 'http://www.twitter.com/DianaDeGette'%></div>
-      <div class='contact-details'><i class="fas fa-envelope"></i> DianaDeGette@gmail.com</div>
+      <div class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to "facebook.com/#{@representative.facebook}", "http://www.facebook.com/#{@representative.facebook}"%></div>
+      <div class='contact-details'><i class="fab fa-twitter"></i> <%= link_to "@#{@representative.twitter}", "http://www.twitter.com/#{@representative.twitter}"%></div>
+      <div class='contact-details'><i class="fas fa-envelope"></i> <%= @representative.email %></div>
       <div class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to 'DianaDeGette.com', 'http://www.DianaDeGette.com'%></div>
     </div>
   </div>
