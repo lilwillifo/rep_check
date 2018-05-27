@@ -8,14 +8,23 @@ class Representative
     service.name
   end
   def party
+    service.party
   end
   def facebook
+    service.facebook
   end
   def twitter
+    service.twitter
   end
   def email
+    service.email
   end
   def website
+    service.website
+  end
+
+  def image
+    service.image
   end
 
     attr_reader :state
