@@ -4,12 +4,11 @@ class PropublicaService
     @district = district
   end
 
-  def members
-    raw_search[:results]
+  def name
+    raw_search[:results][:name]
   end
 
-  private
-    attr_reader :state
+    attr_reader :state, :district
 
     def response
       @response ||= conn.get do |req|

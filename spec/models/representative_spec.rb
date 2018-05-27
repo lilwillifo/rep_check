@@ -1,5 +1,9 @@
 require 'spec_helper'
 require './app/models/representative'
+require './app/services/propublica_service'
+require 'JSON'
+require 'faraday'
+require 'pry'
 
 describe Representative, type: :model do
   it 'exists' do

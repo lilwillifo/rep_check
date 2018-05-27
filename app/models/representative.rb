@@ -5,8 +5,7 @@ class Representative
   end
 
   def name
-    service.members
-    binding.pry
+    service.name
   end
   def party
   end
@@ -19,10 +18,9 @@ class Representative
   def website
   end
 
-  private
     attr_reader :state
 
     def service
-      @service ||= PropublicaService.new('CO', district)
+      @service ||= PropublicaService.new('CO', @district)
     end
 end
