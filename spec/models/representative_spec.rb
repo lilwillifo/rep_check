@@ -12,7 +12,6 @@ describe Representative, type: :model do
       expect(representative.party).to be_a String
       expect(representative.facebook).to be_a String
       expect(representative.twitter).to be_a String
-      expect(representative.email).to be_a String
       expect(representative.website).to be_a String
       expect(representative.image).to be_a String
     end

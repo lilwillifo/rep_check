@@ -22,9 +22,7 @@ class Representative
   def twitter
     service.twitter
   end
-  def email
-    service.email
-  end
+
   def website
     service.website
   end

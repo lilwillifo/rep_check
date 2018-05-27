@@ -25,16 +25,16 @@ class PropublicaService
     find_house_member[:twitter_id]
   end
 
-  def email
-    ''
-  end
-
   def website
-    ''
+    house_member_details[:url]
   end
 
   def image
     ''
+  end
+
+  def house_member_details
+    get_url(find_house_member[:api_uri].split('org')[1]).first
   end
 
   def find_house_member
