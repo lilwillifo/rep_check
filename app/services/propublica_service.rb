@@ -4,9 +4,13 @@ class PropublicaService
     @state = state
     @district = district
     @conn = Faraday.new(url: "https://api.propublica.org") do |faraday|
-      faraday.headers["X-API-Key"] = ENV["propublica_key"]
+      faraday.headers["X-API-Key"] = ENV["propublica_api_key"]
       faraday.adapter  Faraday.default_adapter
     end
+  end
+
+  def name
+    find_house_member[:name]
   end
 
   def find_house_member
