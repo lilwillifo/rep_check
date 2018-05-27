@@ -1,6 +1,7 @@
 class PropublicaService
-  def initialize(state)
+  def initialize(state, district)
     @state = state
+    @district = district
   end
 
   def members
@@ -21,6 +22,6 @@ class PropublicaService
     end
 
     def conn
-      Faraday.new(url: "https://api.propublica.org/congress/v1/members/house/#{state}/current.json")
+      Faraday.new(url: "https://api.propublica.org/congress/v1/members/house/#{state}/#{district}/current.json")
     end
 end
