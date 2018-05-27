@@ -1,5 +1,5 @@
 <nav>
-  <%=image_tag 'logo.png', class: 'logo'%>
+  <%=link_to image_tag('logo.png'), root_path, class: 'logo'%>
   <div class='menu'>
       <%= link_to 'House', representatives_path, class: 'nav-link'  %>
       <p class='nav-link'>|</p>
