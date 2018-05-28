@@ -19,7 +19,7 @@ describe "As a user on the home page" do
 
       visit representative_path(representative.district)
 
-      expect(page).to have_link(representative.website)
+      expect(page).to have_selector(:css, "a[href='#{representative.website}']")
       expect(page).to have_xpath("//img[contains(@src,'#{representative.bioguide_id}.jpg')]")
     end
   end
