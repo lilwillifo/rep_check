@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div class='card'>
+  <div class='card' id='votes'>
     <h1>Votes</h1>
     <div class='sub-card'>
       <table>
@@ -45,23 +45,22 @@
           </th>
           <th>
             <div class="dropdown">
-              <button>Year</button>
+              <button>Congress</button>
               <div class="dropdown-content">
-                <a href="#">2017</a>
-                <a href="#">2016</a>
-                <a href="#">2015</a>
-                <a href="#">2014</a>
-                <a href="#">2013</a>
-                <a href="#">2012</a>
+                <a href="#">115th(2017-2018)</a>
+                <a href="#">114th(2015-2016)</a>
+                <a href="#">113th(2013-2014)</a>
               </div>
             </div>
           </th>
         </tr>
         <tr>
-          <td align='center'><i class="far fa-square fa-lg"></i></td>
-          <td  align='center'><i class="far fa-check-square fa-lg"></i></td>
-          <td><a href='https://www.govtrack.us/congress/bills/115/hr315/summary'>HR 315: Improving Access to Maternity Care Act</td>
-          <td align='center'>2017</td>
+          <% @bills.each do |bill| %>
+            <td align='center'><i class="far fa-square fa-lg"></i></td>
+            <td  align='center'><i class="far fa-check-square fa-lg"></i></td>
+            <td><a href="https://www.govtrack.us/congress/bills/<%=bill.session%>/<%=bill.id%>/summary"> <%= bill.id %>: <%= bill.name %> </td>
+            <td align='center'>2017</td>
+          <% end %>
         </tr>
       </table>
     </div>

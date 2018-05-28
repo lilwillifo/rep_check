@@ -9,35 +9,11 @@ class PropublicaService
     end
   end
 
-  def name
-    find_house_member[:name]
-  end
-
-  def party
-    find_house_member[:party]
-  end
-
-  def facebook
-    find_house_member[:facebook_account]
-  end
-
-  def twitter
-    find_house_member[:twitter_id]
-  end
-
-  def website
-    house_member_details[:url]
-  end
-
-  def bioguide_id
-    house_member_details[:member_id]
-  end
-
   def house_member_details
-    get_url(find_house_member[:api_uri].split('org')[1]).first
+    get_url(house_member[:api_uri].split('org')[1]).first
   end
 
-  def find_house_member
+  def house_member
     get_url("/congress/v1/members/house/#{state}/#{district}/current.json").first
   end
 
