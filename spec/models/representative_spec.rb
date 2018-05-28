@@ -16,4 +16,15 @@ describe Representative, type: :model do
       expect(representative.bioguide_id).to be_a String
     end
   end
+  it 'has valid for another district' do
+    VCR.use_cassette("find_co_3_member_attributes") do
+      representative = Representative.new(3)
+      expect(representative.name).to be_a String
+      expect(representative.party).to be_a String
+      expect(representative.facebook).to be_a String
+      expect(representative.twitter).to be_a String
+      expect(representative.website).to be_a String
+      expect(representative.bioguide_id).to be_a String
+    end
+  end
 end
