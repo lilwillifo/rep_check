@@ -22,8 +22,8 @@ class PropublicaService
     JSON.parse(response.body, symbolize_names: true)[:results]
   end
 
-  def self.find_house_member(state, district)
-    new(state, district).find_house_member
+  def self.house_member(state, district)
+    new(state, district).house_member
   end
 
   private
