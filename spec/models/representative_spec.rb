@@ -13,7 +13,7 @@ describe Representative, type: :model do
       expect(representative.facebook).to be_a String
       expect(representative.twitter).to be_a String
       expect(representative.website).to be_a String
-      expect(representative.image).to be_a String
+      expect(representative.bioguide_id).to be_a String
     end
   end
 end

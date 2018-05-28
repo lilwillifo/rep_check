@@ -29,8 +29,8 @@ class PropublicaService
     house_member_details[:url]
   end
 
-  def image
-    ''
+  def bioguide_id
+    house_member_details[:member_id]
   end
 
   def house_member_details

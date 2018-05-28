@@ -27,8 +27,8 @@ class Representative
     service.website
   end
 
-  def image
-    service.image
+  def bioguide_id
+    service.bioguide_id
   end
 
     attr_reader :state

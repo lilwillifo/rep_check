@@ -13,13 +13,14 @@ describe "As a user on the home page" do
       expect(page).to have_content(representative.twitter)
     end
   end
-  it 'I can see their email, website, and image' do
-    VCR.use_cassette("find_co_1_member_more_details") do
+  it 'I can see their website and image' do
+    VCR.use_cassette("find_co_1_member_image_and_website") do
       representative = Representative.new(1)
 
-      expect(page).to have_content(representative.email)
-      expect(page).to have_content(representative.website)
-      expect(page).to have_xpath("//img[contains(@src,'#{representative.district}.jpg')]")
+      visit representative_path(representative.district)
+
+      expect(page).to have_link(representative.website)
+      expect(page).to have_xpath("//img[contains(@src,'#{representative.bioguide_id}.jpg')]")
     end
   end
 end
