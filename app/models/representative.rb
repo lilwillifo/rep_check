@@ -17,9 +17,11 @@ class Representative
       'Other'
     end
   end
+
   def facebook
     service.house_member[:facebook_account]
   end
+
   def twitter
     service.house_member[:twitter_id]
   end
@@ -31,6 +33,20 @@ class Representative
   def bioguide_id
     service.house_member_details[:member_id]
   end
+
+  def vote(roll_call)
+    vote = RepBillSearch.new(name, roll_call).vote
+    bill = Bill.find_by(roll_call: roll_call)
+    if vote == bill.democratic_majority_position
+      'Dem'
+    elsif vote == bill.republican_majority_position
+      'Rep'
+    else
+      'Other'
+    end
+  end
+
+  private
 
     attr_reader :state
 

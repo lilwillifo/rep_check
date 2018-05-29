@@ -20,6 +20,6 @@ response[:votes].each do |vote|
               roll_call: vote[:roll_call],
               name: vote[:bill][:title],
               democratic_majority_position: vote[:democratic][:majority_position],
-              republican_majority_position: vote[:republican][:majority_position],
+              republican_majority_position: vote[:republican][:majority_position]
               )
           end
