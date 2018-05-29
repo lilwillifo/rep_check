@@ -45,6 +45,25 @@
           </th>
           <th>
             <div class="dropdown">
+              <button>Month</button>
+              <div class="dropdown-content">
+                <a href="#">01</a>
+                <a href="#">02</a>
+                <a href="#">03</a>
+                <a href="#">04</a>
+                <a href="#">05</a>
+                <a href="#">06</a>
+                <a href="#">07</a>
+                <a href="#">08</a>
+                <a href="#">09</a>
+                <a href="#">10</a>
+                <a href="#">11</a>
+                <a href="#">12</a>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div class="dropdown">
               <button>Year</button>
               <div class="dropdown-content">
                 <a href="#">2018</a>
@@ -60,6 +79,7 @@
             <td align='center'><i class="far fa-square fa-lg"></i></td>
             <td  align='center'><i class="far fa-check-square fa-lg"></i></td>
             <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.id %>: <%= bill.name %> </td>
+            <td align='center'>01</td>
             <td align='center'>2017</td>
         </tr>
         <% end %>
