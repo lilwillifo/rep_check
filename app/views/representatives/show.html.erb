@@ -45,23 +45,24 @@
           </th>
           <th>
             <div class="dropdown">
-              <button>Congress</button>
+              <button>Year</button>
               <div class="dropdown-content">
-                <a href="#">115th(2017-2018)</a>
-                <a href="#">114th(2015-2016)</a>
-                <a href="#">113th(2013-2014)</a>
+                <a href="#">2018</a>
+                <a href="#">2017</a>
+                <a href="#">2016</a>
+                <a href="#">2015</a>
               </div>
             </div>
           </th>
         </tr>
+        <% @bills.each do |bill| %>
         <tr>
-          <% @bills.each do |bill| %>
             <td align='center'><i class="far fa-square fa-lg"></i></td>
             <td  align='center'><i class="far fa-check-square fa-lg"></i></td>
-            <td><a href="https://www.govtrack.us/congress/bills/<%=bill.session%>/<%=bill.id%>/summary"> <%= bill.id %>: <%= bill.name %> </td>
+            <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.id %>: <%= bill.name %> </td>
             <td align='center'>2017</td>
-          <% end %>
         </tr>
+        <% end %>
       </table>
     </div>
   </div>
