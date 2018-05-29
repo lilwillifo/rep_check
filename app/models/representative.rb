@@ -32,11 +32,6 @@ class Representative
     service.house_member_details[:member_id]
   end
 
-  def bills
-    PropublicaService.new.bills
-  end
-
-
     attr_reader :state
 
     def service
