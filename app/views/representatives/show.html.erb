@@ -76,12 +76,12 @@
         </tr>
         <% @bills.each do |bill| %>
         <tr id=<%=bill.bill_id%>>
-          <%if @representative.vote(bill.bill_id) == 'Rep' %>
-              <td align='center'></td>
+          <%if @representative.vote(bill.bill_id) == 'Dem' %>
               <td align='center'><i class="far fa-check-square fa-3x dem"></i></td>
-            <% elsif @representative.vote(bill.bill_id) == 'Rep' %>
-              <td align='center'><i class="far fa-check-square fa-3x rep"></i></td>
               <td align='center'></td>
+            <% elsif @representative.vote(bill.bill_id) == 'Rep' %>
+              <td align='center'></td>
+              <td align='center'><i class="far fa-check-square fa-3x rep"></i></td>
             <% else %>
               <td align='center'></td>
               <td align='center'></td>

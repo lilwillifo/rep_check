@@ -17,9 +17,11 @@ class Representative
       'Other'
     end
   end
+
   def facebook
     service.house_member[:facebook_account]
   end
+
   def twitter
     service.house_member[:twitter_id]
   end
@@ -31,6 +33,12 @@ class Representative
   def bioguide_id
     service.house_member_details[:member_id]
   end
+
+  def vote(rep_id, roll_call)
+    RepBillSearch.new(rep_id, roll_call)
+  end
+
+  private
 
     attr_reader :state
 
