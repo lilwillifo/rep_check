@@ -37,7 +37,27 @@ describe "As a user on the home page" do
         expect(page).to have_content('H.R. 38: Concealed Carry Reciprocity Act of 2017')
         expect(page).to_not have_content('H.R. 354: Defund Planned Parenthood Act of 2017')
       end
+    end
+  end
+  it 'I can see if the rep voted with or against their party' do
+    VCR.use_cassette("find_how rep voted") do
+      representative = Representative.new(1)
+      bill = Bill.create(bill_id: "hres70-115",
+                         roll_call: 69,
+                         chamber: "House",
+                         year: 2017,
+                         month: 1,
+                         congress: 115,
+                         name: "Providing for consideration of the joint resolution...",
+                         democratic_majority_position: "No",
+                         republican_majority_position: "Yes"
+                       )
 
+      visit representative_path(representative.district)
+
+      within('#hres70-115') do
+        expect(page).to have_css(".dem")
+      end
     end
   end
 end

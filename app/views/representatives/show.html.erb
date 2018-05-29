@@ -75,9 +75,17 @@
           </th>
         </tr>
         <% @bills.each do |bill| %>
-        <tr>
-            <td align='center'><i class="far fa-square fa-3x"></i></td>
-            <td  align='center'><i class="far fa-check-square fa-3x"></i></td>
+        <tr id=<%=bill.bill_id%>>
+          <%if @representative.vote(bill.bill_id) == 'Rep' %>
+              <td align='center'></td>
+              <td align='center'><i class="far fa-check-square fa-3x dem"></i></td>
+            <% elsif @representative.vote(bill.bill_id) == 'Rep' %>
+              <td align='center'><i class="far fa-check-square fa-3x rep"></i></td>
+              <td align='center'></td>
+            <% else %>
+              <td align='center'></td>
+              <td align='center'></td>
+            <% end %>
             <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.id %>: <%= bill.name %> </td>
             <td align='center'>01</td>
             <td align='center'>2017</td>
