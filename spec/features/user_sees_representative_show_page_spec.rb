@@ -24,13 +24,13 @@ describe "As a user on the home page" do
     end
   end
   it 'I can see their votes and I can sort by category and year' do
-    VCR.use_cassette("find_co_1_member_image_and_website") do
+    VCR.use_cassette("find_all_bills") do
       representative = Representative.new(1)
 
       visit representative_path(representative.district)
 
       within('#votes') do
-        expect(page).to have_content('115th (2017-2018)')
+        expect(page).to have_content('115th(2017-2018)')
 
         click_on 'Guns'
 
