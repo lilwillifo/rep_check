@@ -34,8 +34,8 @@ class Representative
     service.house_member_details[:member_id]
   end
 
-  def vote(rep_id, roll_call)
-    RepBillSearch.new(rep_id, roll_call)
+  def vote(roll_call)
+    RepBillSearch.new(name, roll_call)
   end
 
   private
