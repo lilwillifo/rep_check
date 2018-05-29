@@ -23,4 +23,21 @@ describe "As a user on the home page" do
       expect(page).to have_xpath("//img[contains(@src,'#{representative.bioguide_id}.jpg')]")
     end
   end
+  it 'I can see their votes and I can sort by category and year' do
+    VCR.use_cassette("find_all_bills") do
+      representative = Representative.new(1)
+
+      visit representative_path(representative.district)
+
+      within('#votes') do
+        expect(page).to have_content('115th(2017-2018)')
+
+        click_on 'Guns'
+
+        expect(page).to have_content('H.R. 38: Concealed Carry Reciprocity Act of 2017')
+        expect(page).to_not have_content('H.R. 354: Defund Planned Parenthood Act of 2017')
+      end
+
+    end
+  end
 end

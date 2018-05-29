@@ -5,30 +5,31 @@ class Representative
   end
 
   def name
-    service.name
+    service.house_member[:name]
   end
+
   def party
-    if service.party == 'D'
+    if service.house_member[:party] == 'D'
       'Democrat'
-    elsif service.party == 'R'
+    elsif service.house_member[:party] == 'R'
       'Republican'
     else
       'Other'
     end
   end
   def facebook
-    service.facebook
+    service.house_member[:facebook_account]
   end
   def twitter
-    service.twitter
+    service.house_member[:twitter_id]
   end
 
   def website
-    service.website
+    service.house_member_details[:url]
   end
 
   def bioguide_id
-    service.bioguide_id
+    service.house_member_details[:member_id]
   end
 
     attr_reader :state
