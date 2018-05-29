@@ -17,7 +17,8 @@
 /yarn-error.log
 
 /spec/cassettes
-/coverage*
+/coverage
+/coverage.data
 
 .byebug_history
 
