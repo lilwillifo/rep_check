@@ -25,7 +25,7 @@ describe RepBillSearch do
                            republican_majority_position: "Yes"
                          )
         search = RepBillSearch.new(rep.name, bill.roll_call)
-        expect(search.vote).to eq('Dem')
+        expect(search.vote).to eq('No')
       end
     end
   end

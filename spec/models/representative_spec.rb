@@ -41,7 +41,7 @@ describe Representative, type: :model do
                            democratic_majority_position: "No",
                            republican_majority_position: "Yes"
                          )
-        expect(representative.vote(representative.bioguide_id, bill.roll_call)).to eq 'Dem'
+        expect(representative.vote(bill.roll_call)).to eq 'Dem'
       end
     end
   end
