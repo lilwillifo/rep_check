@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-05-28T15:13:32-06:00">2018-05-28T15:13:32-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-05-28T19:38:21-06:00">2018-05-28T19:38:21-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.97%</span></span>
+    (<span class="covered_percent"><span class="green">93.33%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.86
+         3.47
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>21</b> files in total.
-    <b>132</b> relevant lines. 
-    <span class="green"><b>128</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed </span>
+    <b>22</b> files in total.
+    <b>135</b> relevant lines. 
+    <span class="green"><b>126</b> lines covered</span> and
+    <span class="red"><b>9</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -63,11 +63,11 @@
       <tr>
         <td class="strong"><a href="#4ff0eb39792b1d905a6e084f619b42d8d8e083b9" class="src_link" title="app/controllers/representatives_controller.rb">app/controllers/representatives_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>5</td>
-        <td>3</td>
-        <td>3</td>
+        <td>6</td>
+        <td>4</td>
+        <td>4</td>
         <td>0</td>
-        <td>1.7</td>
+        <td>2.0</td>
       </tr>
       
       <tr>
@@ -81,33 +81,43 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#6fc57306b0d59f437005ecff68ffe03f74ed4d96" class="src_link" title="app/models/bill.rb">app/models/bill.rb</a></td>
-        <td class="red strong">66.67 %</td>
-        <td>5</td>
+        <td class="strong"><a href="#dbeef1ac52e529e3d1d4dfb8540bbbf41bd7bb4a" class="src_link" title="app/models/application_record.rb">app/models/application_record.rb</a></td>
+        <td class="green strong">100.0 %</td>
         <td>3</td>
         <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#6fc57306b0d59f437005ecff68ffe03f74ed4d96" class="src_link" title="app/models/bill.rb">app/models/bill.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>2</td>
         <td>1</td>
-        <td>0.7</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#46d34cfd3bc39b70bd5742923d6c233c4fa70153" class="src_link" title="app/models/representative.rb">app/models/representative.rb</a></td>
-        <td class="green strong">96.0 %</td>
+        <td class="green strong">92.0 %</td>
         <td>45</td>
         <td>25</td>
-        <td>24</td>
-        <td>1</td>
-        <td>4.0</td>
+        <td>23</td>
+        <td>2</td>
+        <td>5.4</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#79aa4b8813a198a6b36a2f13731025454f09ae82" class="src_link" title="app/services/propublica_service.rb">app/services/propublica_service.rb</a></td>
-        <td class="green strong">91.67 %</td>
-        <td>40</td>
-        <td>24</td>
-        <td>22</td>
-        <td>2</td>
-        <td>8.0</td>
+        <td class="red strong">73.08 %</td>
+        <td>42</td>
+        <td>26</td>
+        <td>19</td>
+        <td>7</td>
+        <td>9.4</td>
       </tr>
       
       <tr>
@@ -318,8 +328,8 @@
     <h3>app/controllers/representatives_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -345,13 +355,19 @@
           <code class="ruby">    @representative = Representative.new(params[:id])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="covered" data-hits="3" data-linenumber="4">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @bills = Bill.all</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">end</code>
@@ -393,14 +409,14 @@
 </div>
 
       
-        <div class="source_table" id="6fc57306b0d59f437005ecff68ffe03f74ed4d96">
+        <div class="source_table" id="dbeef1ac52e529e3d1d4dfb8540bbbf41bd7bb4a">
   <div class="header">
-    <h3>app/models/bill.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h3>app/models/application_record.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
+      <b>2</b> relevant lines. 
       <span class="green"><b>2</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -410,28 +426,47 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Bill</code>
+          <code class="ruby">class ApplicationRecord &lt; ActiveRecord::Base</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.all</code>
+          <code class="ruby">  self.abstract_class = true</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="3">
+        <li class="never" data-hits="" data-linenumber="3">
           
           
-          <code class="ruby">    ObjectSpace.each_object(self).to_a</code>
+          <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="6fc57306b0d59f437005ecff68ffe03f74ed4d96">
+  <div class="header">
+    <h3>app/models/bill.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>1</b> relevant lines. 
+      <span class="green"><b>1</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">class Bill &lt; ApplicationRecord</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="2">
           
           
           <code class="ruby">end</code>
@@ -445,11 +480,11 @@
         <div class="source_table" id="46d34cfd3bc39b70bd5742923d6c233c4fa70153">
   <div class="header">
     <h3>app/models/representative.rb</h3>
-    <h4><span class="green">96.0 %</span> covered</h4>
+    <h4><span class="green">92.0 %</span> covered</h4>
     <div>
       <b>25</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>23</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -498,8 +533,8 @@
           <code class="ruby">  def name</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="8">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="12" data-linenumber="8">
+          <span class="hits">12</span>
           
           <code class="ruby">    service.house_member[:name]</code>
         </li>
@@ -522,14 +557,14 @@
           <code class="ruby">  def party</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="12">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="9" data-linenumber="12">
+          <span class="hits">9</span>
           
           <code class="ruby">    if service.house_member[:party] == &#39;D&#39;</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="13">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="13">
+          <span class="hits">8</span>
           
           <code class="ruby">      &#39;Democrat&#39;</code>
         </li>
@@ -576,8 +611,8 @@
           <code class="ruby">  def facebook</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="21">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="9" data-linenumber="21">
+          <span class="hits">9</span>
           
           <code class="ruby">    service.house_member[:facebook_account]</code>
         </li>
@@ -594,8 +629,8 @@
           <code class="ruby">  def twitter</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="24">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="9" data-linenumber="24">
+          <span class="hits">9</span>
           
           <code class="ruby">    service.house_member[:twitter_id]</code>
         </li>
@@ -618,8 +653,8 @@
           <code class="ruby">  def website</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="28">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="28">
+          <span class="hits">6</span>
           
           <code class="ruby">    service.house_member_details[:url]</code>
         </li>
@@ -642,8 +677,8 @@
           <code class="ruby">  def bioguide_id</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="32">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="32">
+          <span class="hits">6</span>
           
           <code class="ruby">    service.house_member_details[:member_id]</code>
         </li>
@@ -666,10 +701,10 @@
           <code class="ruby">  def bills</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="36">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="36">
           
-          <code class="ruby">    PropublicaService.new.bills(115)</code>
+          
+          <code class="ruby">    PropublicaService.new.bills</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
@@ -708,8 +743,8 @@
           <code class="ruby">    def service</code>
         </li>
       
-        <li class="covered" data-hits="36" data-linenumber="43">
-          <span class="hits">36</span>
+        <li class="covered" data-hits="52" data-linenumber="43">
+          <span class="hits">52</span>
           
           <code class="ruby">      @service ||= PropublicaService.new(&#39;CO&#39;, @district)</code>
         </li>
@@ -734,11 +769,11 @@
         <div class="source_table" id="79aa4b8813a198a6b36a2f13731025454f09ae82">
   <div class="header">
     <h3>app/services/propublica_service.rb</h3>
-    <h4><span class="green">91.67 %</span> covered</h4>
+    <h4><span class="red">73.08 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>22</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <b>26</b> relevant lines. 
+      <span class="green"><b>19</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
   
@@ -814,172 +849,184 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  def bills(congress)</code>
+          <code class="ruby">  def bills</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="13">
+          
           
           <code class="ruby">    i=1</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="14">
           
-          <code class="ruby">    while i&lt;711</code>
+          
+          <code class="ruby">    while i&lt;10</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="15">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="15">
           
-          <code class="ruby">      Bill.new(get_url(&quot;/congress/v1/#{congress}/house/sessions/1/votes/#{i}.json&quot;))</code>
+          
+          <code class="ruby">      Bill.new(get_url(&quot;/congress/v1/house/votes/2017/0#{i}.json&quot;))</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="16">
           
           
-          <code class="ruby">      Bill.new(get_url(&quot;/congress/v1/#{congress}/house/sessions/2/votes/#{i}.json&quot;))</code>
+          <code class="ruby">      Bill.new(get_url(&quot;/congress/v1/house/votes/2018/0#{i}.json&quot;))</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
-          
-          <code class="ruby">      i += 1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">    Bill.new(get_url(&quot;/congress/v1/house/votes/2017/10.json&quot;))</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
+          
+          <code class="ruby">    Bill.new(get_url(&quot;/congress/v1/house/votes/2017/11.json&quot;))</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">    Bill.new(get_url(&quot;/congress/v1/house/votes/2017/12.json&quot;))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
           <code class="ruby">  def house_member_details</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="22">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="12" data-linenumber="24">
+          <span class="hits">12</span>
           
           <code class="ruby">    get_url(house_member[:api_uri].split(&#39;org&#39;)[1]).first</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
           <code class="ruby">  def house_member</code>
         </li>
       
-        <li class="covered" data-hits="37" data-linenumber="26">
-          <span class="hits">37</span>
+        <li class="covered" data-hits="53" data-linenumber="28">
+          <span class="hits">53</span>
           
           <code class="ruby">    get_url(&quot;/congress/v1/members/house/#{state}/#{district}/current.json&quot;).first</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
+        <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
           <code class="ruby">  def get_url(url)</code>
         </li>
       
-        <li class="covered" data-hits="47" data-linenumber="30">
-          <span class="hits">47</span>
+        <li class="covered" data-hits="65" data-linenumber="32">
+          <span class="hits">65</span>
           
           <code class="ruby">    response = @conn.get(url)</code>
         </li>
       
-        <li class="covered" data-hits="44" data-linenumber="31">
-          <span class="hits">44</span>
+        <li class="covered" data-hits="65" data-linenumber="33">
+          <span class="hits">65</span>
           
           <code class="ruby">    JSON.parse(response.body, symbolize_names: true)[:results]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="35">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.house_member(state, district)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
+        <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
           <code class="ruby">    new(state, district).house_member</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
           <code class="ruby">  attr_reader :state, :district</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">end</code>

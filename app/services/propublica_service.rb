@@ -9,13 +9,15 @@ class PropublicaService
     end
   end
 
-  def bills(congress)
+  def bills
     i=1
-    while i<711
-      Bill.new(get_url("/congress/v1/#{congress}/house/sessions/1/votes/#{i}.json"))
-      Bill.new(get_url("/congress/v1/#{congress}/house/sessions/2/votes/#{i}.json"))
-      i += 1
+    while i<10
+      Bill.new(get_url("/congress/v1/house/votes/2017/0#{i}.json"))
+      Bill.new(get_url("/congress/v1/house/votes/2018/0#{i}.json"))
     end
+    Bill.new(get_url("/congress/v1/house/votes/2017/10.json"))
+    Bill.new(get_url("/congress/v1/house/votes/2017/11.json"))
+    Bill.new(get_url("/congress/v1/house/votes/2017/12.json"))
   end
 
   def house_member_details

@@ -33,7 +33,7 @@ class Representative
   end
 
   def bills
-    PropublicaService.new.bills(115)
+    PropublicaService.new.bills
   end
 
 

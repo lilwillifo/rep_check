@@ -1,5 +1,2 @@
-class Bill
-  def self.all
-    ObjectSpace.each_object(self).to_a
-  end
+class Bill < ApplicationRecord
 end
