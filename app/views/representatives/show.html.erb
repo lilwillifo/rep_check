@@ -76,10 +76,10 @@
         </tr>
         <% @bills.each do |bill| %>
         <tr id=<%=bill.bill_id%>>
-          <%if @representative.vote(bill.roll_call) == 'Dem' %>
+          <%if @rep_votes.find_by(bill_id: bill.id).vote_with == 'Dem' %>
               <td align='center'><i class="far fa-check-square fa-3x dem"></i></td>
               <td align='center'></td>
-            <% elsif @representative.vote(bill.roll_call) == 'Rep' %>
+            <% elsif @rep_votes.find(bill_id: bill.id).vote_with == 'Rep' %>
               <td align='center'></td>
               <td align='center'><i class="far fa-check-square fa-3x rep"></i></td>
             <% else %>
