@@ -52,6 +52,7 @@ describe "As a user on the home page" do
                          democratic_majority_position: "No",
                          republican_majority_position: "Yes"
                        )
+      RepVotes.create(rep_name: representative.name, bill_id: bill.id, vote_with: 'Dem')
 
       visit representative_path(representative.district)
 
