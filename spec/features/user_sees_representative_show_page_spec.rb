@@ -59,6 +59,10 @@ describe "As a user on the home page" do
       within('#hres70-115') do
         expect(page).to have_css(".dem")
       end
+
+      within('#summary') do
+        expect(page).to have_content('100%')
+      end
     end
   end
 end

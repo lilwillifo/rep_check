@@ -12,8 +12,8 @@
     </div>
   </div>
 
-  <div class='card'>
-    <h1>Voted with <%= @representative.party %>s on <b>80%</b> of Bills</h1>
+  <div class='card' id='summary'>
+    <h1>Voted with <%= @representative.party %>s on <b><%=@representative.party_percent%>%</b> of Bills</h1>
     <div class="sub-card">
       <h2>Broke Party Lines on These Issues:</h2>
         <ul>
