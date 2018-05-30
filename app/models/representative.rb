@@ -35,7 +35,6 @@ class Representative
   end
 
   def vote(roll_call)
-    
     vote = RepBillSearch.new(name, roll_call).vote
     bill = Bill.find_by(roll_call: roll_call)
     if vote == bill.democratic_majority_position
