@@ -79,7 +79,7 @@
           <%if @rep_votes.find_by(bill_id: bill.id).vote_with == 'Dem' %>
               <td align='center'><i class="far fa-check-square fa-3x dem"></i></td>
               <td align='center'></td>
-            <% elsif @rep_votes.find(bill_id: bill.id).vote_with == 'Rep' %>
+            <% elsif @rep_votes.find_by(bill_id: bill.id).vote_with == 'Rep' %>
               <td align='center'></td>
               <td align='center'><i class="far fa-check-square fa-3x rep"></i></td>
             <% else %>
