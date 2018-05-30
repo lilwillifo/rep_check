@@ -39,20 +39,8 @@ class Representative
     votes_with_party = votes.select do |vote|
       party.include?(vote.vote_with)
     end.length
-    votes_with_party / votes.length.to_f * 100
+    (votes_with_party / votes.length.to_f * 100).round(2)
   end
-  #
-  # def vote(roll_call)
-  #   vote = RepBillSearch.new(name, roll_call).vote
-  #   bill = Bill.find_by(roll_call: roll_call)
-  #   if vote == bill.democratic_majority_position
-  #     'Dem'
-  #   elsif vote == bill.republican_majority_position
-  #     'Rep'
-  #   else
-  #     'Other'
-  #   end
-  # end
 
   private
 
