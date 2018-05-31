@@ -3,7 +3,7 @@ require 'rails_helper'
 describe RepVotes, type: :model do
   it 'exists' do
     VCR.use_cassette("repvotes") do
-      representative = Representative.new(1)
+      representative = Representative.create(district: 1)
       bill = Bill.create(bill_id: "hres70-115",
                          roll_call: 69,
                          chamber: "House",

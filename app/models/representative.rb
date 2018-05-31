@@ -1,30 +1,5 @@
-class Representative
-  attr_reader :district, :name, :party, :facebook, :twitter, :email, :website
-  def initialize(district)
-    @district = district
-  end
-
-  def name
-    service.house_member[:name]
-  end
-
-  def party
-    if service.house_member[:party] == 'D'
-      'Democrat'
-    elsif service.house_member[:party] == 'R'
-      'Republican'
-    else
-      'Other'
-    end
-  end
-
-  def facebook
-    service.house_member[:facebook_account]
-  end
-
-  def twitter
-    service.house_member[:twitter_id]
-  end
+class Representative < ApplicationRecord
+  enum party: ["Democrat", "Republican", "Other"]
 
   def website
     service.house_member_details[:url]
@@ -48,10 +23,8 @@ class Representative
 
   private
 
-    attr_reader :state
-
     def service
-      @service ||= PropublicaService.new('CO', @district)
+      @service ||= PropublicaService.new('CO', district)
     end
 
     def votes

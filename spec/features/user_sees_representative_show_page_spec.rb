@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "As a user on the home page" do
-  let(:representative) {Representative.new(1)}
+  let(:representative) {Representative.create(district: 1, name: 'Dianna DeGette')}
   let(:category) {Category.create(name: 'Government Operations and Politics')}
 
   it "I can link to my representative's show page and see their contact info" do
@@ -98,5 +98,14 @@ describe "As a user on the home page" do
         end
       end
     end
+  end
+end
+
+describe 'As a user' do
+  it 'I cant visit a page for a district that doesnt exist' do
+    visit '/representatives/10'
+
+    expect(current_path).to eq '/'
+    expect(page).to have_content "Sorry! That link doesn't exist. Try again!"
   end
 end
