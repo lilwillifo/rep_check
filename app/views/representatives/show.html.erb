@@ -37,6 +37,7 @@
           <th align="left"><div class="dropdown">
               <button>Category</button>
               <div class="dropdown-content">
+                <%= link_to 'All', "/representatives/#{@representative.district}" %>
                 <% @categories.each do |category| %>
                   <%= link_to category.name, "/representatives/#{@representative.district}?category=#{category.name}" %>
                 <% end %>
