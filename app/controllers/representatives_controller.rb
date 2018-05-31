@@ -9,5 +9,8 @@ class RepresentativesController < ApplicationController
     else
       @bills = Bill.all
     end
+  rescue ActiveRecord::RecordNotFound
+    flash[:notice] = "Sorry! That link doesn't exist. Try again!"
+    redirect_to '/'
   end
 end
