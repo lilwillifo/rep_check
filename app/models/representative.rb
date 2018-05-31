@@ -43,7 +43,7 @@ class Representative
     ids = votes_against_party.map(&:bill_id)
     ids.map do |id|
       Bill.find(id).category
-    end
+    end.uniq
   end
 
   private
