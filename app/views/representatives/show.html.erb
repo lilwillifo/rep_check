@@ -17,9 +17,9 @@
     <div class="sub-card">
       <h2>Broke Party Lines on These Issues:</h2>
         <ul>
-          <li> Guns (3 Bills) </li>
-          <li> Climate (2 Bills) </li>
-          <li> Taxation (1 Bills) </li>
+          <% @representative.bills_against_categories.each do |category| %>
+          <li> <%= category.name %> </li>
+          <% end %>
         </ul>
     </div>
     <div class='sub-card'>
@@ -43,6 +43,7 @@
               </div>
             </div>
           </th>
+          <th></th>
           <th>
             <div class="dropdown">
               <button>Month</button>
@@ -66,10 +67,7 @@
             <div class="dropdown">
               <button>Year</button>
               <div class="dropdown-content">
-                <a href="#">2018</a>
                 <a href="#">2017</a>
-                <a href="#">2016</a>
-                <a href="#">2015</a>
               </div>
             </div>
           </th>
@@ -86,7 +84,8 @@
               <td align='center'></td>
               <td align='center'></td>
             <% end %>
-            <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.id %>: <%= bill.name %> </td>
+            <td> <%= bill.category.name %> </td>
+            <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.bill_id.chomp('-115') %>: <%= bill.name %> </td>
             <td align='center'>01</td>
             <td align='center'>2017</td>
         </tr>

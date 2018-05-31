@@ -29,7 +29,7 @@ describe Representative, type: :model do
   end
   context 'instance methods' do
       it '.party_percent returns % of votes with their party' do
-        VCR.use_cassette("find_bill_votes_by_party") do
+        VCR.use_cassette("find_party_percent") do
             representative = Representative.new(1)
             category = Category.create(name: 'Something')
             bill_1 = category.bills.create(bill_id: "hres70-115",
@@ -59,5 +59,36 @@ describe Representative, type: :model do
             expect(representative.party_percent).to eq 50
       end
     end
+    it '.bills_against_categories returns all bills where the rep voted against party' do
+      VCR.use_cassette("find_bill_votes_by_party") do
+          representative = Representative.new(1)
+          category = Category.create(name: 'Something')
+          bill_1 = category.bills.create(bill_id: "hres70-115",
+                             roll_call: 69,
+                             chamber: "House",
+                             year: 2017,
+                             month: 1,
+                             congress: 115,
+                             name: "Providing for consideration of the joint resolution...",
+                             democratic_majority_position: "No",
+                             republican_majority_position: "Yes"
+                           )
+          bill_2 = category.bills.create(bill_id: "hres71-115",
+                                roll_call: 70,
+                                chamber: "House",
+                                year: 2017,
+                                month: 1,
+                                congress: 115,
+                                name: "Another thing",
+                                democratic_majority_position: "No",
+                                republican_majority_position: "Yes"
+                              )
+
+          RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Dem')
+          RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Rep')
+
+          expect(representative.bills_against_categories).to eq [bill_2.category]
+    end
+  end
   end
 end

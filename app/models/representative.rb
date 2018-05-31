@@ -35,11 +35,15 @@ class Representative
   end
 
   def party_percent
-    votes = RepVotes.where(rep_name: "#{name}")
-    votes_with_party = votes.select do |vote|
-      party.include?(vote.vote_with)
-    end.length
-    (votes_with_party / votes.length.to_f * 100).round(2)
+    with_party = votes.length.to_f - votes_against_party.length
+    (with_party / votes.length.to_f * 100).round(2)
+  end
+
+  def bills_against_categories
+    ids = votes_against_party.map(&:bill_id)
+    ids.map do |id|
+      Bill.find(id).category
+    end.uniq
   end
 
   private
@@ -48,5 +52,15 @@ class Representative
 
     def service
       @service ||= PropublicaService.new('CO', @district)
+    end
+
+    def votes
+      RepVotes.where(rep_name: "#{name}")
+    end
+
+    def votes_against_party
+      votes.select do |vote|
+        !party.include?(vote.vote_with)
+      end
     end
 end
