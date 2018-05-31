@@ -31,7 +31,8 @@ describe Representative, type: :model do
       it '.party_percent returns % of votes with their party' do
         VCR.use_cassette("find_bill_votes_by_party") do
             representative = Representative.new(1)
-            bill_1 = Bill.create(bill_id: "hres70-115",
+            category = Category.create(name: 'Something')
+            bill_1 = category.bills.create(bill_id: "hres70-115",
                                roll_call: 69,
                                chamber: "House",
                                year: 2017,
@@ -41,7 +42,7 @@ describe Representative, type: :model do
                                democratic_majority_position: "No",
                                republican_majority_position: "Yes"
                              )
-            bill_2 = Bill.create(bill_id: "hres71-115",
+            bill_2 = category.bills.create(bill_id: "hres71-115",
                                   roll_call: 70,
                                   chamber: "House",
                                   year: 2017,
