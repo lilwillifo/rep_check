@@ -34,7 +34,7 @@ describe "As a user on the home page" do
   it 'I can see their votes and I can sort by category and year' do
     VCR.use_cassette("find_all_bills") do
       category = Category.create(name: 'Government Operations and Politics')
-      category.bills.create( bill_id: "hres70-115",
+      bill = category.bills.create( bill_id: "hres70-115",
                              roll_call: 69,
                              chamber: "House",
                              year: 2017,
@@ -45,6 +45,8 @@ describe "As a user on the home page" do
                              republican_majority_position: "Yes"
                             )
       category2 = Category.create(name: 'Another Category')
+      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Dem')
+
       visit representative_path(representative.district)
 
       within('#votes') do
