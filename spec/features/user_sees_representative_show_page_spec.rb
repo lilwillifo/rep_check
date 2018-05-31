@@ -45,13 +45,10 @@ describe "As a user on the home page" do
         click_on category.name
 
         expect(page).to have_content('Providing for consideration of the joint resolution')
-
-        click_on category2.name
-
-        expect(current_url).to include '/representatives/1?category=Another%20Category'
-
-        expect(page).to_not have_content('Providing for consideration of the joint resolution')
       end
+      click_on category2.name
+      expect(current_url).to include '/representatives/1?category=Another%20Category'
+      expect(page).to_not have_content('Providing for consideration of the joint resolution')
     end
   end
   it 'I can see if the rep voted with or against their party' do
