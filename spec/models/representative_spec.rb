@@ -59,7 +59,7 @@ describe Representative, type: :model do
             expect(representative.party_percent).to eq 50
       end
     end
-    it '.bills_against_category returns all bills where the rep voted against party' do
+    it '.bills_against_categories returns all bills where the rep voted against party' do
       VCR.use_cassette("find_bill_votes_by_party") do
           representative = Representative.new(1)
           category = Category.create(name: 'Something')
@@ -87,7 +87,7 @@ describe Representative, type: :model do
           RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Dem')
           RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Rep')
 
-          expect(representative.bills_against_category).to eq [bill_2]
+          expect(representative.bills_against_categories).to eq [bill_2.category]
     end
   end
   end

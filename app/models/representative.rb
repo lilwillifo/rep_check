@@ -39,10 +39,10 @@ class Representative
     (with_party / votes.length.to_f * 100).round(2)
   end
 
-  def bills_against_category
+  def bills_against_categories
     ids = votes_against_party.map(&:bill_id)
     ids.map do |id|
-      Bill.find(id)
+      Bill.find(id).category
     end
   end
 

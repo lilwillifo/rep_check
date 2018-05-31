@@ -17,9 +17,9 @@
     <div class="sub-card">
       <h2>Broke Party Lines on These Issues:</h2>
         <ul>
-          <li> Guns (3 Bills) </li>
-          <li> Climate (2 Bills) </li>
-          <li> Taxation (1 Bills) </li>
+          <% @representative.bills_against_categories.each do |category| %>
+          <li> <%= category.name %> </li>
+          <% end %>
         </ul>
     </div>
     <div class='sub-card'>

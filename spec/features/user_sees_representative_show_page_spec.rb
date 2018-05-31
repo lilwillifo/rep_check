@@ -92,8 +92,9 @@ describe "As a user on the home page" do
 
       within('#summary') do
         expect(page).to have_content('Broke Party Lines on These Issues:')
-        representative.bills_against_category.each do |bill|
-          expect(page).to have_content(bill.category)
+        representative.bills_against_categories.each do |category|
+          expect(page).to have_content(category.name)
+          expect(page).to have_content(category.name)
         end
       end
     end
