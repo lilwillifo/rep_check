@@ -1,10 +1,5 @@
 class Representative < ApplicationRecord
-  # attr_reader :district, :name, :party, :facebook, :twitter, :website
-  enum vote_with: ["Dem", "Rep", "Other"]
-
-  # def initialize(district)
-  #   @district = district
-  # end
+  enum party: ["Democrat", "Republican", "Other"]
 
   def website
     service.house_member_details[:url]
@@ -28,33 +23,8 @@ class Representative < ApplicationRecord
 
   private
 
-
-    # def name
-    #   service.house_member[:name]
-    # end
-    #
-    # def party
-    #   if service.house_member[:party] == 'D'
-    #     'Democrat'
-    #   elsif service.house_member[:party] == 'R'
-    #     'Republican'
-    #   else
-    #     'Other'
-    #   end
-    # end
-    #
-    # def facebook
-    #   service.house_member[:facebook_account]
-    # end
-    #
-    # def twitter
-    #   service.house_member[:twitter_id]
-    # end
-
-    attr_reader :state
-
     def service
-      @service ||= PropublicaService.new('CO', @district)
+      @service ||= PropublicaService.new('CO', district)
     end
 
     def votes
@@ -63,17 +33,7 @@ class Representative < ApplicationRecord
 
     def votes_against_party
       votes.select do |vote|
-        !party_name.include?(vote.vote_with)
-      end
-    end
-
-    def party_name
-      if party == 0
-        'Democrat'
-      elsif party == 1
-        'Republican'
-      else
-        'Other'
+        !party.include?(vote.vote_with)
       end
     end
 end

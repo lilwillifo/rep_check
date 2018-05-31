@@ -9,7 +9,7 @@ describe Representative, type: :model do
     VCR.use_cassette("find_co_1_member_attributes") do
       representative = Representative.create(district: 1, name: 'Margaret', party: 'Dem', facebook: '', twitter: '')
       expect(representative.name).to be_a String
-      expect(representative.party).to be_an Integer
+      expect(representative.party).to be_an String
       expect(representative.facebook).to be_a String
       expect(representative.twitter).to be_a String
       expect(representative.website).to be_a String
@@ -20,7 +20,7 @@ describe Representative, type: :model do
     VCR.use_cassette("find_co_3_member_attributes") do
       representative = Representative.create(district: 3, name: 'Someone else', party: 'Rep', facebook: '', twitter: '')
       expect(representative.name).to be_a String
-      expect(representative.party).to be_an Integer
+      expect(representative.party).to be_an String
       expect(representative.facebook).to be_a String
       expect(representative.twitter).to be_a String
       expect(representative.website).to be_a String
