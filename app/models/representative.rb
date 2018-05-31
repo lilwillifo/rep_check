@@ -1,30 +1,11 @@
-class Representative
-  attr_reader :district, :name, :party, :facebook, :twitter, :email, :website
-  def initialize(district)
-    @district = district
-  end
+class Representative < ApplicationRecord
+  # attr_reader :district, :name, :party, :facebook, :twitter, :website
+  enum vote_with: ["Dem", "Rep", "Other"]
 
-  def name
-    service.house_member[:name]
-  end
+  # def initialize(district)
+  #   @district = district
+  # end
 
-  def party
-    if service.house_member[:party] == 'D'
-      'Democrat'
-    elsif service.house_member[:party] == 'R'
-      'Republican'
-    else
-      'Other'
-    end
-  end
-
-  def facebook
-    service.house_member[:facebook_account]
-  end
-
-  def twitter
-    service.house_member[:twitter_id]
-  end
 
   def website
     service.house_member_details[:url]
@@ -47,6 +28,29 @@ class Representative
   end
 
   private
+
+
+    # def name
+    #   service.house_member[:name]
+    # end
+    #
+    # def party
+    #   if service.house_member[:party] == 'D'
+    #     'Democrat'
+    #   elsif service.house_member[:party] == 'R'
+    #     'Republican'
+    #   else
+    #     'Other'
+    #   end
+    # end
+    #
+    # def facebook
+    #   service.house_member[:facebook_account]
+    # end
+    #
+    # def twitter
+    #   service.house_member[:twitter_id]
+    # end
 
     attr_reader :state
 

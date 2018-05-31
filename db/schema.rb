@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180531022022) do
+ActiveRecord::Schema.define(version: 20180531203203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20180531022022) do
     t.bigint "bill_id"
     t.integer "vote_with", default: 0
     t.index ["bill_id"], name: "index_rep_votes_on_bill_id"
+  end
+
+  create_table "representatives", force: :cascade do |t|
+    t.integer "district"
+    t.string "name"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "email"
+    t.string "website"
+    t.string "bioguide_id"
+    t.integer "party", default: 0
   end
 
   add_foreign_key "bills", "categories"
