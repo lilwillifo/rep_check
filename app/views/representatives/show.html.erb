@@ -37,9 +37,9 @@
           <th align="left"><div class="dropdown">
               <button>Category</button>
               <div class="dropdown-content">
-                <a href="#">Guns</a>
-                <a href="#">Climate</a>
-                <a href="#">Taxation</a>
+                <% @categories.each do |category| %>
+                  <%= link_to category.name, "/representatives/#{@representative.district}?category=#{category.name}" %>
+                <% end %>
               </div>
             </div>
           </th>

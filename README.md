@@ -1,7 +1,5 @@
-# README 
+# README
 
-More details to follow. 
-
-Things you may want to cover:
+More details to follow.
 
 * Deployed here: https://rep-check.herokuapp.com/

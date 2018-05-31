@@ -22,4 +22,5 @@ describe Bill do
     expect(bill.democratic_majority_position).to eq 'No'
     expect(bill.republican_majority_position).to eq 'Yes'
   end
+  it { should belong_to :category }
 end

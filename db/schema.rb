@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180530003636) do
+ActiveRecord::Schema.define(version: 20180531022022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20180530003636) do
     t.integer "session"
     t.string "democratic_majority_position"
     t.string "republican_majority_position"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_bills_on_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "rep_votes", force: :cascade do |t|
@@ -35,5 +41,6 @@ ActiveRecord::Schema.define(version: 20180530003636) do
     t.index ["bill_id"], name: "index_rep_votes_on_bill_id"
   end
 
+  add_foreign_key "bills", "categories"
   add_foreign_key "rep_votes", "bills"
 end
