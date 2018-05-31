@@ -31,17 +31,32 @@ describe "As a user on the home page" do
       expect(page).to have_xpath("//img[contains(@src,'#{representative.bioguide_id}.jpg')]")
     end
   end
-  xit 'I can see their votes and I can sort by category and year' do
+  it 'I can see their votes and I can sort by category and year' do
     VCR.use_cassette("find_all_bills") do
+      category = Category.create(name: 'Government Operations and Politics')
+      category.bills.create( bill_id: "hres70-115",
+                             roll_call: 69,
+                             chamber: "House",
+                             year: 2017,
+                             month: 1,
+                             congress: 115,
+                             name: "Providing for consideration of the joint resolution...",
+                             democratic_majority_position: "No",
+                             republican_majority_position: "Yes"
+                            )
+      category2 = Category.create(name: 'Another Category')
       visit representative_path(representative.district)
 
       within('#votes') do
         expect(page).to have_content('2017')
 
-        click_on 'Guns'
+        click_on category.name
 
-        expect(page).to have_content('H.R. 38: Concealed Carry Reciprocity Act of 2017')
-        expect(page).to_not have_content('H.R. 354: Defund Planned Parenthood Act of 2017')
+        expect(page).to have_content('Providing for consideration of the joint resolution')
+
+        click_on category2.name
+
+        expect(page).to_not have_content('Providing for consideration of the joint resolution')
       end
     end
   end
