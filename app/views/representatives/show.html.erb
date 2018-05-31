@@ -3,12 +3,13 @@
 <div class="all_cards">
   <div class="card">
     <%= image_tag src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@representative.bioguide_id}.jpg", class: 'image'  %>
+  </br>
     <h1><%= @representative.name %></h1>
     <h2><%= @representative.party %></h2>
     <div class="contact-info">
-      <div class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to "facebook.com/#{@representative.facebook}", "http://www.facebook.com/#{@representative.facebook}"%></div>
-      <div class='contact-details'><i class="fab fa-twitter"></i> <%= link_to "@#{@representative.twitter}", "http://www.twitter.com/#{@representative.twitter}"%></div>
-      <div class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to "#{@representative.name}", "#{@representative.website}"%></div>
+      <p class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to "facebook.com/#{@representative.facebook}", "http://www.facebook.com/#{@representative.facebook}"%></p>
+      <p class='contact-details'><i class="fab fa-twitter"></i> <%= link_to "@#{@representative.twitter}", "http://www.twitter.com/#{@representative.twitter}"%></p>
+      <p class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to "#{@representative.name}", "#{@representative.website}"%></p>
     </div>
   </div>
 
@@ -18,12 +19,12 @@
       <h2>Broke Party Lines on These Issues:</h2>
         <ul>
           <% @representative.bills_against_categories.each do |category| %>
-          <li> <%= category.name %> </li>
+          <li><%= link_to category.name, "/representatives/#{@representative.district}?category=#{category.name}" %></li>
           <% end %>
         </ul>
     </div>
     <div class='sub-card'>
-      <h2>Tweets</h2>
+      <h2>Tweets  <i class="fab fa-twitter fa-lg"></i></h2>
     </div>
   </div>
 
