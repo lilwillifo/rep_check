@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "As a user on the home page" do
-  let(:representative) {Representative.create(district: 1)}
+  let(:representative) {Representative.create(district: 1, name: 'Dianna DeGette')}
   let(:category) {Category.create(name: 'Government Operations and Politics')}
 
   it "I can link to my representative's show page and see their contact info" do
