@@ -75,4 +75,27 @@ describe "As a user on the home page" do
       end
     end
   end
+  it 'I can see a summary of what category they strayed from their party' do
+    VCR.use_cassette('bills_summary') do
+      bill = category.bills.create(bill_id: "hres70-115",
+                         roll_call: 69,
+                         chamber: "House",
+                         year: 2017,
+                         month: 1,
+                         congress: 115,
+                         name: "Providing for consideration of the joint resolution...",
+                         democratic_majority_position: "No",
+                         republican_majority_position: "Yes"
+                       )
+      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Rep')
+      visit representative_path(representative.district)
+
+      within('#summary') do
+        expect(page).to have_content('Broke Party Lines on These Issues:')
+        representative.bills_against_category.each do |bill|
+          expect(page).to have_content(bill.category)
+        end
+      end
+    end
+  end
 end
