@@ -6,7 +6,6 @@ class Representative < ApplicationRecord
   #   @district = district
   # end
 
-
   def website
     service.house_member_details[:url]
   end
@@ -64,7 +63,17 @@ class Representative < ApplicationRecord
 
     def votes_against_party
       votes.select do |vote|
-        !party.include?(vote.vote_with)
+        !party_name.include?(vote.vote_with)
+      end
+    end
+
+    def party_name
+      if party == 0
+        'Democrat'
+      elsif party == 1
+        'Republican'
+      else
+        'Other'
       end
     end
 end
