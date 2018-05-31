@@ -34,7 +34,7 @@ describe "As a user on the home page" do
                              democratic_majority_position: "No",
                              republican_majority_position: "Yes"
                             )
-      category2 = Category.create(name: 'Another Category')
+      category2 = Category.create(id: 2, name: 'Another Category')
       bill.rep_votes.create(rep_name: representative.name, vote_with: 'Dem')
 
       visit representative_path(representative.district)
@@ -47,6 +47,8 @@ describe "As a user on the home page" do
         expect(page).to have_content('Providing for consideration of the joint resolution')
 
         click_on category2.name
+
+        expect(current_url).to include '/representatives/1?category=Another%20Category'
 
         expect(page).to_not have_content('Providing for consideration of the joint resolution')
       end
