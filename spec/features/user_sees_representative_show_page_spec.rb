@@ -1,10 +1,20 @@
 require 'rails_helper'
 
 describe "As a user on the home page" do
+  let(:representative) {Representative.new(1)}
+  let(:bill) {Bill.create(bill_id: "hres70-115",
+                     roll_call: 69,
+                     chamber: "House",
+                     year: 2017,
+                     month: 1,
+                     congress: 115,
+                     name: "Providing for consideration of the joint resolution...",
+                     democratic_majority_position: "No",
+                     republican_majority_position: "Yes"
+                   )
+                    }
   it "I can link to my representative's show page and see their contact info" do
-    VCR.use_cassette("find_co_1_member_show_page") do
-      representative = Representative.new(1)
-
+    VCR.use_cassette("find_co_rep_show_page") do
       visit representative_path(representative.district)
 
       expect(page).to have_content(representative.name)
@@ -15,8 +25,6 @@ describe "As a user on the home page" do
   end
   it 'I can see their website and image' do
     VCR.use_cassette("find_co_1_member_image_and_website") do
-      representative = Representative.new(1)
-
       visit representative_path(representative.district)
 
       expect(page).to have_selector(:css, "a[href='#{representative.website}']")
@@ -25,8 +33,6 @@ describe "As a user on the home page" do
   end
   xit 'I can see their votes and I can sort by category and year' do
     VCR.use_cassette("find_all_bills") do
-      representative = Representative.new(1)
-
       visit representative_path(representative.district)
 
       within('#votes') do
@@ -40,8 +46,7 @@ describe "As a user on the home page" do
     end
   end
   it 'I can see if the rep voted with or against their party' do
-    VCR.use_cassette("find_how rep voted") do
-      representative = Representative.new(1)
+    VCR.use_cassette("find_how_rep_voted") do
       bill = Bill.create(bill_id: "hres70-115",
                          roll_call: 69,
                          chamber: "House",
@@ -52,8 +57,7 @@ describe "As a user on the home page" do
                          democratic_majority_position: "No",
                          republican_majority_position: "Yes"
                        )
-      RepVotes.create(rep_name: representative.name, bill_id: bill.id, vote_with: 'Dem')
-
+      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Dem')
       visit representative_path(representative.district)
 
       within('#hres70-115') do
@@ -61,7 +65,7 @@ describe "As a user on the home page" do
       end
 
       within('#summary') do
-        expect(page).to have_content('100%')
+        expect(page).to have_content('100.0%')
       end
     end
   end
