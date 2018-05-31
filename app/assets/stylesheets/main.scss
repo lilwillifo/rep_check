@@ -12,6 +12,7 @@ html {
   background-color: $background;
   margin-left: 30px;
   margin-right: 30px;
+
 }
 
 #map {
@@ -30,6 +31,8 @@ nav {
   padding-left: 100px;
   padding-right: 100px;
   padding-bottom: 30px;
+  background-image: image-url('Capitol.png');
+
 
   .logo {
     height: 40%;
