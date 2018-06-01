@@ -70,9 +70,7 @@ describe "As a user" do
         expect(page).to have_css(".dem")
       end
 
-      within('#summary') do
-        expect(page).to have_content('100.0%')
-      end
+      expect(page).to have_content('100.0%')
     end
   end
   it 'I can see a summary of what category they strayed from their party' do
