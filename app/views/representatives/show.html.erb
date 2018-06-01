@@ -13,9 +13,9 @@
     </div>
   </div>
 
-  <div class='card' id='summary'>
+  <div class='card'>
     <h1>Voted with <%= @representative.party %>s on <b><%=@representative.party_percent%>%</b> of Bills</h1>
-    <div class="sub-card">
+    <div class="sub-card" id='summary'>
       <h2>Broke Party Lines on These Issues:</h2>
         <ul>
           <% @representative.bills_against_categories.each do |category| %>
@@ -23,8 +23,9 @@
           <% end %>
         </ul>
     </div>
-    <div class='sub-card'>
-      <h2>Tweets  <i class="fab fa-twitter fa-lg"></i></h2>
+    <div class='sub-card' id='tweets'>
+      <a class="twitter-timeline" data-height="500" data-theme="dark" href="https://twitter.com/<%=@representative.twitter%>">Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <a href="https://twitter.com/intent/tweet?screen_name=<%=@representative.twitter%>" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet Your Representative!</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
   </div>
 
