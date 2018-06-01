@@ -207,3 +207,10 @@ th {
 .rep {
   color: $title;
 }
+
+#tweets {
+  width: 90%;
+  height: 500px;
+  overflow:auto;
+  border: none;
+}

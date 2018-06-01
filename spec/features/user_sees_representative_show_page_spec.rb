@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "As a user on the home page" do
+describe "As a user" do
   let(:representative) {Representative.create(district: 1, name: 'Dianna DeGette')}
   let(:category) {Category.create(name: 'Government Operations and Politics')}
 
