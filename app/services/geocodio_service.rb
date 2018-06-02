@@ -26,7 +26,6 @@ class GeocodioService
         req.params['postal_code'] = address[:postal_code]
         req.params['fields'] = 'cd'
       end
-      binding.pry
       JSON.parse(response.body, symbolize_names: true)[:results]
     end
 end
