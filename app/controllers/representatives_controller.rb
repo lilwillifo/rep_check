@@ -1,6 +1,6 @@
 class RepresentativesController < ApplicationController
   def show
-    @representative = Representative.find(params[:id])
+    @representative = Representative.find_by(district: params[:id])
     @rep_votes = RepVotes.where(rep_name: "#{@representative.name}")
     @categories = Category.all.sort_by(&:name)
     if params[:category]
@@ -19,5 +19,18 @@ class RepresentativesController < ApplicationController
     fav.destroy
     flash[:success] = 'Removed from your favorite list!'
     redirect_to '/'
+  end
+
+  def create
+    redirect_to "/representatives/#{address.district}"
+  end
+
+  private
+  def address
+    GeocodioService.new( { street: params['street'],
+                           city: params['city'],
+                           state: params['state'],
+                           postal_code: params['postal_code']
+                        })
   end
 end

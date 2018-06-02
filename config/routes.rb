@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
-  resources :representatives, only: [:index, :show, :update]
+  resources :representatives, only: [:create, :show, :update]
 end
