@@ -4,7 +4,8 @@
       <%= link_to 'House', representatives_path, class: 'nav-link'  %>
       <p class='nav-link'>|</p>
       <% if current_user %>
-        Hello, <%= current_user.name %>
+        <p> Logged in as <%= current_user.screen_name %></p>
+        <p class='nav-link'>|</p>
         <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %>
       <% else %>
         <%= link_to 'Sign in with Twitter', twitter_login_path, class: 'nav-link' %>

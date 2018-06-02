@@ -6,7 +6,7 @@ describe 'As a user' do
     visit "/"
     click_link "Sign in with Twitter"
     expect(current_path).to eq('/')
-    expect(page).to have_content('Horace')
+    expect(page).to have_content('worace')
     expect(page).to have_link('Logout')
   end
   context 'as a signed in user ' do
