@@ -3,6 +3,10 @@
   <div class='menu'>
       <%= link_to 'House', representatives_path, class: 'nav-link'  %>
       <p class='nav-link'>|</p>
-      <%= link_to 'Sign in with Twitter', twitter_login_path, class: 'nav-link' %>
+      <% if current_user %>
+        Hello, <%= current_user.name %>
+      <% else %>
+        <%= link_to 'Sign in with Twitter', twitter_login_path, class: 'nav-link' %>
+      <% end %>
   </div>
 </nav>

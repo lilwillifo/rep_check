@@ -1,14 +1,17 @@
 require 'rails_helper'
 describe 'As a user' do
   it 'I can log in with twitter' do
-    Capybara.app = RepCheck::Application
     stub_omniauth
 
     visit "/"
     click_link "Sign in with Twitter"
-    assert_equal "/", current_path
-    assert page.has_content?("Horace")
-    assert page.has_link?("Logout")
+    expect(current_path).to eq('/')
+    expect(page).to have_content('Horace')
+    expect(page).to have_link('Logout')
+  end
+  it 'I can logout' do
+    let(:user) { create(:user) }
+    before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user) }
   end
 end
 
