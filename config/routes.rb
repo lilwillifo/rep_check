@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:update]
 
-  resources :representatives, only: [:index, :show]
-  # resources :senators, only: [:index]
+  resources :users, only: [:update] do
+    resources :favorites, only: [:create, :destroy]
+  end
+
+  resources :representatives, only: [:index, :show, :update]
 end

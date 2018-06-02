@@ -13,4 +13,11 @@ class RepresentativesController < ApplicationController
     flash[:notice] = "Sorry! That link doesn't exist. Try again!"
     redirect_to '/'
   end
+
+  def update
+    fav = Favorite.find_by(representative_id: params[:id], user_id: current_user.id)
+    fav.destroy
+    flash[:success] = 'Removed from your favorite list!'
+    redirect_to '/'
+  end
 end
