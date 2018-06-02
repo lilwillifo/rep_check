@@ -1,0 +1,16 @@
+<%= form_tag representatives_path, class: 'form' do %>
+
+  <%= label_tag :street %>
+  <%= text_field_tag :street %>
+
+  <%= label_tag :city %>
+  <%= text_field_tag :city %>
+
+  <%= label_tag :state %>
+  <%= text_field_tag :state %>
+
+  <%= label_tag :postal_code %>
+  <%= text_field_tag :postal_code %>
+
+  <%= submit_tag 'Submit' %>
+<% end %>
