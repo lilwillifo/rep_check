@@ -18,10 +18,10 @@ describe 'As a logged in user' do
       expect(page).to have_content('Removed from your favorite list!')
     end
   end
-  it 'I can tweet at my representative' do
+  xit 'I can tweet at my representative' do
 
   end
-  it 'I can see my favorites dashboard' do
+  xit 'I can see my favorites dashboard' do
 
   end
 end
