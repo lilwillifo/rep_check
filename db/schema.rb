@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180531203203) do
+ActiveRecord::Schema.define(version: 20180602172739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20180531203203) do
     t.string "name"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "representative_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["representative_id"], name: "index_favorites_on_representative_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "rep_votes", force: :cascade do |t|
     t.string "rep_name"
     t.bigint "bill_id"
@@ -52,6 +61,18 @@ ActiveRecord::Schema.define(version: 20180531203203) do
     t.integer "party", default: 0
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "screen_name"
+    t.string "uid"
+    t.string "oauth_token"
+    t.string "oauth_token_secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+  end
+
   add_foreign_key "bills", "categories"
+  add_foreign_key "favorites", "representatives"
+  add_foreign_key "favorites", "users"
   add_foreign_key "rep_votes", "bills"
 end

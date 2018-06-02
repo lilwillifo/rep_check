@@ -60,7 +60,8 @@ end
 response = @service.get_url("/congress/v1/house/votes/2017/01.json")
 
 response[:votes].each do |vote|
-  return if vote[:bill][:bill_id].nil?
+  if vote[:bill][:bill_id].nil?
+  else
   bill = Bill.create!(bill_id: vote[:bill][:bill_id],
               chamber: response[:chamber],
               year: response[:year],
@@ -75,6 +76,7 @@ response[:votes].each do |vote|
       rep_names.each do |rep_name|
         RepVotes.create!(bill_id: bill.id, rep_name: rep_name, vote_with: vote(bill, rep_name) )
       end
+    end
     end
 
 #GovTrack Categories

@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'figaro'
 gem 'simplecov', require: false, group: :test
+gem 'omniauth-twitter'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -43,6 +45,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'factory_bot_rails'
 end
 
 group :development do
