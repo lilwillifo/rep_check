@@ -1,5 +1,5 @@
 FactoryBot.define do
-  facotry :user do
+  factory :user do
     screen_name 'lilwillifo'
     uid '123'
     name 'Margaret'

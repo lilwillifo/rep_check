@@ -5,6 +5,7 @@
       <p class='nav-link'>|</p>
       <% if current_user %>
         Hello, <%= current_user.name %>
+        <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %>
       <% else %>
         <%= link_to 'Sign in with Twitter', twitter_login_path, class: 'nav-link' %>
       <% end %>

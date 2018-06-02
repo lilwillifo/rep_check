@@ -9,9 +9,15 @@ describe 'As a user' do
     expect(page).to have_content('Horace')
     expect(page).to have_link('Logout')
   end
-  it 'I can logout' do
+  context 'as a signed in user ' do
     let(:user) { create(:user) }
-    before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user) }
+    it 'I can logout' do
+      visit '/'
+      click_link "Sign in with Twitter"
+      click_link 'Logout'
+
+      expect(page).to have_content('Sign in with Twitter')
+    end
   end
 end
 
