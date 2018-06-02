@@ -6,11 +6,4 @@ class FavoritesController < ApplicationController
     flash[:success] = 'Added to your favorite list!'
     redirect_to representative_path(favorite.representative)
   end
-
-  def destroy
-    favorite = Favorite.find(params[:id])
-    favorite.destroy
-    flash[:success] = 'Removed from your favorite list!'
-    redirect_to '/'
-  end
 end
