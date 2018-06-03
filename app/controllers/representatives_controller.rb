@@ -20,6 +20,10 @@ class RepresentativesController < ApplicationController
     redirect_to "/representatives/#{address.district}"
   end
 
+  def index
+    @representatives = Representative.all
+  end
+
   private
   def address
     GeocodioService.new( { street: params['street'],
