@@ -6,4 +6,8 @@ class FavoritesController < ApplicationController
     flash[:success] = 'Added to your favorite list!'
     redirect_to representative_path(favorite.representative)
   end
+
+  def index
+    @representatives = current_user.representatives
+  end
 end

@@ -1,0 +1,11 @@
+<h1 class='center'> Reps Favorited by <%= current_user.screen_name %></h1>
+
+<div class="all_cards">
+  <% @representatives.each do |rep| %>
+    <% @representative = rep %>
+    <%= render partial: 'partials/contact_card' %>
+    <div class='card'>
+      <%= render partial: 'partials/summary' %>
+    </div>
+  <% end %>
+</div>
