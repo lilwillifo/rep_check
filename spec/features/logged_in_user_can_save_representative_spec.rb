@@ -19,9 +19,19 @@ describe 'As a logged in user' do
     end
   end
   xit 'I can tweet at my representative' do
-
   end
-  xit 'I can see my favorites dashboard' do
+  it 'I can see my favorites dashboard' do
+    VCR.use_cassette('logged_in_user') do
+      rep = Representative.create(district: 1, name: 'Dianna DeGette')
+      Favorite.create(representative_id: rep.id, user_id: user.id)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit '/'
 
+      click_link 'My Favorites'
+      expect(current_path).to eq('/favorites')
+      expect(page).to have_link(rep.name)
+      expect(page).to have_content(rep.party)
+      expect(page).to have_content(rep.party_percent)
+    end
   end
 end

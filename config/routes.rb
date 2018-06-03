@@ -6,10 +6,8 @@ Rails.application.routes.draw do
   get '/auth/twitter/callback', to: 'sessions#create'
   delete '/logout', as: :logout, to: 'sessions#destroy'
 
-  resources :users, only: [:update]
-
   resources :users, only: [:update] do
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:index, :create]
   end
 
   resources :representatives, only: [:create, :show, :update]
