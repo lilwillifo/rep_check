@@ -34,4 +34,14 @@ describe 'As a logged in user' do
       expect(page).to have_content(rep.party_percent)
     end
   end
+  it 'a non logged in user can not see favorites' do
+    VCR.use_cassette('guest_user') do
+      visit '/'
+
+      expect(page).to_not have_link('My Favorites')
+
+      visit '/favorites'
+      expect(current_path).to eq('/')
+    end
+  end
 end
