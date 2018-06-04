@@ -20,18 +20,9 @@
           <div class="dropdown">
             <button>Month</button>
             <div class="dropdown-content">
-              <a href="#">01</a>
-              <a href="#">02</a>
-              <a href="#">03</a>
-              <a href="#">04</a>
-              <a href="#">05</a>
-              <a href="#">06</a>
-              <a href="#">07</a>
-              <a href="#">08</a>
-              <a href="#">09</a>
-              <a href="#">10</a>
-              <a href="#">11</a>
-              <a href="#">12</a>
+              <% (1..12).each do |i| %>
+                <%= link_to "#{i}", "/representatives/#{@representative.district}?month=#{i}" %>
+              <% end %>
             </div>
           </div>
         </th>
@@ -58,7 +49,7 @@
           <% end %>
           <td> <%= bill.category.name %> </td>
           <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.bill_id.chomp('-115') %>: <%= bill.name %> </td>
-          <td align='center'>01</td>
+          <td align='center'> <%= bill.month %> </td>
           <td align='center'>2017</td>
       </tr>
       <% end %>

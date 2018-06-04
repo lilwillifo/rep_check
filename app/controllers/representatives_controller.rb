@@ -12,7 +12,7 @@ class RepresentativesController < ApplicationController
   def update
     fav = Favorite.find_by(representative_id: params[:id], user_id: current_user.id)
     fav.destroy
-    flash[:success] = 'Removed from your favorite list!'
+    flash[:success] = 'Removed from your watch list!'
     redirect_to '/'
   end
 

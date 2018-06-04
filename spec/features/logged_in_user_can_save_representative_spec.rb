@@ -8,14 +8,13 @@ describe 'As a logged in user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit '/representatives/1'
 
-      click_link 'Save to Favorites'
+      find(:xpath, ".//a[i[contains(@class, 'far fa-eye')]]").click
 
       expect(current_path).to eq('/representatives/1')
-      expect(page).to have_content('Added to your favorite list!')
-      expect(page).to have_css('.fa-heart')
-      find(:xpath, ".//a[i[contains(@class, 'fas fa-heart')]]").click
+      expect(page).to have_content('Added to your watch list!')
+      click_link('Unfollow')
       expect(current_path).to eq('/')
-      expect(page).to have_content('Removed from your favorite list!')
+      expect(page).to have_content('Removed from your watch list!')
     end
   end
   xit 'I can tweet at my representative' do
@@ -27,7 +26,7 @@ describe 'As a logged in user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit '/'
 
-      click_link 'My Favorites'
+      click_link 'Watch List'
       expect(current_path).to eq('/favorites')
       expect(page).to have_link(rep.name)
       expect(page).to have_content(rep.party)

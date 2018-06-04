@@ -1,15 +1,15 @@
 <%= form_tag representatives_path, class: 'form' do %>
 
-  <%= label_tag :street %>
+  <p><%= label_tag :street %></p>
   <%= text_field_tag :street %>
 
-  <%= label_tag :city %>
+  <p><%= label_tag :city %></p>
   <%= text_field_tag :city %>
 
-  <%= label_tag :state %>
+  <p><%= label_tag :state %></p>
   <%= text_field_tag :state %>
 
-  <%= label_tag :postal_code %>
+  <p><%= label_tag :postal_code %></p>
   <%= text_field_tag :postal_code %>
 
   <%= submit_tag 'Submit' %>
