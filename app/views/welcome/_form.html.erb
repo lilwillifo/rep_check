@@ -1,16 +1,16 @@
 <%= form_tag representatives_path, class: 'form' do %>
 
-  <p><%= label_tag :street %></p>
-  <%= text_field_tag :street %>
+  <p><%= label_tag :street %>
+  <%= text_field_tag :street, nil, placeholder: '123 Main Street' %>
 
-  <p><%= label_tag :city %></p>
-  <%= text_field_tag :city %>
+  <%= label_tag :city %>
+  <%= text_field_tag :city, nil, placeholder: 'Denver' %>
 
-  <p><%= label_tag :state %></p>
-  <%= text_field_tag :state %>
+  <%= label_tag :state %>
+  <%= text_field_tag :state, nil, placeholder: 'CO' %>
 
-  <p><%= label_tag :postal_code %></p>
-  <%= text_field_tag :postal_code %>
+  <%= label_tag :postal_code %>
+  <%= text_field_tag :postal_code, nil, placeholder: '80218' %>
 
-  <%= submit_tag 'Submit' %>
+  <%= submit_tag 'Submit' %></p>
 <% end %>
