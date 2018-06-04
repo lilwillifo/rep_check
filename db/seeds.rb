@@ -34,8 +34,7 @@ end
 def find_category(bill_id)
   id = bill_id.chomp('-115')
   if @service.get_url("/congress/v1/115/bills/#{id}.json").nil?
-    category = Category.find_or_create_by(name: 'Other')
-    category.id
+    0
   else
     subject_name = @service.get_url("/congress/v1/115/bills/#{id}.json").first[:primary_subject]
     category = Category.find_or_create_by(name: subject_name)
@@ -61,6 +60,7 @@ response = @service.get_url("/congress/v1/house/votes/2017/01.json")
 
 response[:votes].each do |vote|
   if vote[:bill][:bill_id].nil?
+  elsif find_category(vote[:bill][:bill_id]) == 0
   else
   bill = Bill.create!(bill_id: vote[:bill][:bill_id],
               chamber: response[:chamber],
