@@ -67,7 +67,7 @@ describe "As a user" do
       visit representative_path(representative.district)
 
       within('#hres70-115') do
-        expect(page).to have_css(".democrat")
+        expect(page).to have_css(".dem")
       end
 
       expect(page).to have_content('100.0%')
