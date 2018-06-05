@@ -25,11 +25,13 @@ common: &default_settings
   log_level: info
 
 
+
 # Environment-specific settings are in this section.
 # RAILS_ENV or RACK_ENV (as appropriate) is used to determine the environment.
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
+  developer_mode: true
   app_name: My Application (Development)
 
 test:

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <% cache do %>
   <head>
     <title>RepCheck</title>
     <%= csrf_meta_tags %>
@@ -20,6 +21,7 @@
     <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
 
   </head>
+  <% end %>
 
   <body>
     <%= render partial: 'partials/nav' %>
