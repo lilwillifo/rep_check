@@ -53,8 +53,8 @@ describe Representative, type: :model do
                                   republican_majority_position: "Yes"
                                 )
 
-            RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Dem')
-            RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Rep')
+            RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Democrat')
+            RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Republican')
 
             expect(representative.party_percent).to eq 50
       end
@@ -84,8 +84,8 @@ describe Representative, type: :model do
                                 republican_majority_position: "Yes"
                               )
 
-          RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Dem')
-          RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Rep')
+          RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Democrat')
+          RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Republican')
 
           expect(representative.bills_against_categories).to eq [bill_2.category]
     end

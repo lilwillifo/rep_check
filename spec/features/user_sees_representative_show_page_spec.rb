@@ -35,7 +35,7 @@ describe "As a user" do
                              republican_majority_position: "Yes"
                             )
       category2 = Category.create(id: 2, name: 'Another Category')
-      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Dem')
+      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Democrat')
 
       visit representative_path(representative.district)
 
@@ -63,7 +63,7 @@ describe "As a user" do
                          democratic_majority_position: "No",
                          republican_majority_position: "Yes"
                        )
-      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Dem')
+      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Democrat')
       visit representative_path(representative.district)
 
       within('#hres70-115') do
@@ -85,7 +85,7 @@ describe "As a user" do
                          democratic_majority_position: "No",
                          republican_majority_position: "Yes"
                        )
-      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Rep')
+      bill.rep_votes.create(rep_name: representative.name, vote_with: 'Republican')
       visit representative_path(representative.district)
 
       within('#summary') do

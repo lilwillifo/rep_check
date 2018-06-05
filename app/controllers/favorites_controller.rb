@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   def create
     favorite = Favorite.create(representative_id: params[:representative_id], user_id: current_user.id)
-    flash[:success] = 'Added to your favorite list!'
+    flash[:success] = 'Added to your watch list!'
     redirect_to representative_path(favorite.representative)
   end
 
