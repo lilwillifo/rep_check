@@ -1,40 +1,42 @@
-<div class='card'>
-  <h1>Votes</h1>
-  <div class='sub-card'  id='votes'>
-    <table>
-      <tr>
-        <th><button>Democrat</button></th>
-        <th><button>Republican</button></th>
-        <th align="left"><div class="dropdown">
-            <button>Category</button>
-            <div class="dropdown-content">
-              <%= link_to 'All', "/representatives/#{@representative.district}" %>
-              <% @categories.each do |category| %>
-                <%= link_to category.name, "/representatives/#{@representative.district}?category=#{category.name}" %>
-              <% end %>
+<% cache do %>
+  <div class='card'>
+    <h1>Votes</h1>
+    <div class='sub-card'  id='votes'>
+      <table>
+        <tr>
+          <th><button>Democrat</button></th>
+          <th><button>Republican</button></th>
+          <th align="left"><div class="dropdown">
+              <button>Category</button>
+              <div class="dropdown-content">
+                <%= link_to 'All', "/representatives/#{@representative.district}" %>
+                <% @categories.each do |category| %>
+                  <%= link_to category.name, "/representatives/#{@representative.district}?category=#{category.name}" %>
+                <% end %>
+              </div>
             </div>
-          </div>
-        </th>
-        <th></th>
-        <th>
-          <div class="dropdown">
-            <button>Month</button>
-            <div class="dropdown-content">
-              <% (1..12).each do |i| %>
-                <%= link_to "#{i}", "/representatives/#{@representative.district}?month=#{i}" %>
-              <% end %>
+          </th>
+          <th></th>
+          <th>
+            <div class="dropdown">
+              <button>Month</button>
+              <div class="dropdown-content">
+                <% (1..12).each do |i| %>
+                  <%= link_to "#{i}", "/representatives/#{@representative.district}?month=#{i}" %>
+                <% end %>
+              </div>
             </div>
-          </div>
-        </th>
-        <th>
-          <div class="dropdown">
-            <button>Year</button>
-            <div class="dropdown-content">
-              <a href="#">2017</a>
+          </th>
+          <th>
+            <div class="dropdown">
+              <button>Year</button>
+              <div class="dropdown-content">
+                <a href="#">2017</a>
+              </div>
             </div>
-          </div>
-        </th>
-      </tr>
+          </th>
+        </tr>
+<% end %>
       <% @bills.each do |bill| %>
       <tr id=<%=bill.bill_id%>>
         <%if @rep_votes.find_by(bill_id: bill.id).vote_with == 'Democrat' %>
