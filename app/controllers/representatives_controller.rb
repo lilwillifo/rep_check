@@ -38,7 +38,7 @@ class RepresentativesController < ApplicationController
       category = Category.find_by_name(params[:category])
       @bills = Bill.where(category_id: category.id)
     elsif params[:month]
-        @bills = Bill.where(month: month)
+        @bills = Bill.where(month: params[:month])
     else
       @bills = Bill.all
     end
