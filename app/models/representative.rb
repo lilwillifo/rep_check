@@ -14,10 +14,9 @@ class Representative < ApplicationRecord
     (with_party / votes.length.to_f * 100).round(2)
   end
 
-  def bills_against_categories
-    ids = votes_against_party.map(&:bill_id)
-    ids.map do |id|
-      Bill.find(id).category
+  def anti_party_vote_categories
+    vote_against_categories.map do |category|
+      {category => vote_against_categories.count(category)}
     end.uniq
   end
 
@@ -36,4 +35,15 @@ class Representative < ApplicationRecord
         !party.include?(vote.vote_with)
       end
     end
+
+    def bill_ids_against
+      votes_against_party.map(&:bill_id)
+    end
+
+    def vote_against_categories
+      bill_ids_against.map do |id|
+        Bill.find(id).category
+      end
+    end
+
 end

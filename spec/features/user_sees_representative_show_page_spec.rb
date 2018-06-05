@@ -92,7 +92,7 @@ describe "As a user" do
         expect(page).to have_content('Broke Party Lines on These Issues:')
         representative.bills_against_categories.each do |category|
           expect(page).to have_content(category.name)
-          expect(page).to have_content(category.name)
+          expect(page).to have_content('(1 Bill)')
         end
       end
     end

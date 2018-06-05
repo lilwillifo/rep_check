@@ -87,7 +87,7 @@ describe Representative, type: :model do
           RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Democrat')
           RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Republican')
 
-          expect(representative.bills_against_categories).to eq [bill_2.category]
+          expect(representative.anti_party_vote_categories).to eq [{bill_2.category => 1}]
     end
   end
   end
