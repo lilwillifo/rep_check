@@ -14,10 +14,19 @@ describe 'As a logged in user' do
       expect(page).to have_content('Added to your watch list!')
       click_link('Unfollow')
       expect(current_path).to eq('/')
-      expect(page).to have_content('Removed from your watch list!')
+      expect(page).to have_content('Removed from your watch list.')
     end
   end
-  xit 'I can tweet at my representative' do
+  it 'I can tweet at my representative' do
+    VCR.use_cassette('logged_in_user') do
+      rep = Representative.create(district: 1, name: 'Dianna DeGette', twitter: 'repdegette')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit '/representatives/1'
+
+      href = "https://twitter.com/intent/tweet?screen_name=#{rep.twitter}"
+      expect(page).to have_selector "a[href='#{href}']", text: "Tweet Your Representative!"
+
+    end
   end
   it 'I can see my favorites dashboard' do
     VCR.use_cassette('logged_in_user') do

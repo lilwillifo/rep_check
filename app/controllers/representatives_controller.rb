@@ -4,20 +4,23 @@ class RepresentativesController < ApplicationController
     @rep_votes = RepVotes.where(rep_name: "#{@representative.name}")
     @categories = Category.all.sort_by(&:name)
     @bills = bills
-  rescue ActiveRecord::RecordNotFound
-    flash[:notice] = "Sorry! That link doesn't exist. Try again!"
+  rescue Exception
+    flash[:notice] = "Sorry! That link doesn't exist."
     redirect_to '/'
   end
 
   def update
     fav = Favorite.find_by(representative_id: params[:id], user_id: current_user.id)
     fav.destroy
-    flash[:success] = 'Removed from your watch list!'
+    flash[:success] = 'Removed from your watch list. 👀'
     redirect_to '/'
   end
 
   def create
     redirect_to "/representatives/#{address.district}"
+  rescue Exception
+    flash[:notice] = "Please enter a valid address."
+    redirect_to '/'
   end
 
   def index
