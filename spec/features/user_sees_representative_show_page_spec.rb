@@ -22,7 +22,7 @@ describe "As a user" do
       expect(page).to have_xpath("//img[contains(@src,'#{representative.bioguide_id}.jpg')]")
     end
   end
-  it 'I can see their votes and I can sort by category and year' do
+  it 'I can see their votes and I can sort by category and month' do
     VCR.use_cassette("find_all_bills") do
       bill = category.bills.create( bill_id: "hres70-115",
                              roll_call: 69,
@@ -49,6 +49,10 @@ describe "As a user" do
       click_on category2.name
       expect(current_url).to include '/representatives/1?category=Another%20Category'
       expect(page).to_not have_content('Providing for consideration of the joint resolution')
+      click_on '2'
+      expect(current_url).to include '/representatives/1?month=2'
+      expect(page).to_not have_content('Providing for consideration of the joint resolution')
+
     end
   end
   it 'I can see if the rep voted with or against their party' do

@@ -15,4 +15,19 @@ describe 'As a user on the root page' do
       expect(current_path).to eq '/representatives/7'
     end
   end
+  it 'I get an error if I enter invalid address' do
+    VCR.use_cassette('search by address') do
+      Representative.create(name: 'Mike Dao', district: 7)
+      visit '/'
+
+      fill_in :street, with: 'sdkhf'
+      fill_in :city, with: 'lajshdf'
+      fill_in :state, with: 'alskdjfh'
+      fill_in :postal_code, with: 'alskdjfh'
+      click_on 'Submit'
+
+      expect(current_path).to eq '/'
+      expect(page).to have_content('Please enter a valid address.')
+    end
+  end
 end
