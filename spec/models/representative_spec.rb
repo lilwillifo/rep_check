@@ -60,7 +60,7 @@ describe Representative, type: :model do
       end
     end
     it '.bills_against_categories returns all bills where the rep voted against party' do
-      VCR.use_cassette("find_bill_votes_by_party") do
+      VCR.use_cassette("find_votes_against_party") do
         representative = Representative.create(district: 1, name: 'Dianna DeGette', party: 'Democrat', facebook: '', twitter: '')
           category = Category.create(name: 'Something')
           bill_1 = category.bills.create(bill_id: "hres70-115",
@@ -88,6 +88,7 @@ describe Representative, type: :model do
           RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Republican')
 
           expected = {bill_2.category => 1}
+          binding.pry
           expect(representative.anti_party_vote_categories).to eq(expected)
     end
   end
