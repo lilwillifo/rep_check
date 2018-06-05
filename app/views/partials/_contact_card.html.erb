@@ -4,7 +4,11 @@
   <h1><%= @representative.name %></h1>
   <h2><%= @representative.party %></h2>
   <div class="contact-info">
-    <p class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to "facebook.com/#{@representative.facebook}", "http://www.facebook.com/#{@representative.facebook}"%></p>
+    <% if @representative.facebook.nil? %>
+      <p class='contact-details'><i class="fab fa-facebook-f"></i> N/A</p>
+    <% else %>
+      <p class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to "facebook.com/#{@representative.facebook}", "http://www.facebook.com/#{@representative.facebook}"%></p>
+    <% end %>
     <p class='contact-details'><i class="fab fa-twitter"></i> <%= link_to "@#{@representative.twitter}", "http://www.twitter.com/#{@representative.twitter}"%></p>
     <p class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to "#{@representative.name}", "#{@representative.website}"%></p>
   </div>
