@@ -19,7 +19,7 @@ class Representative < ApplicationRecord
     vote_against_categories.map do |category|
       anti_party_vote_categories[category] = vote_against_categories.count(category)
     end
-    anti_party_vote_categories
+    anti_party_vote_categories.sort_by{|category, count| count}.reverse.to_h
   end
 
   private
