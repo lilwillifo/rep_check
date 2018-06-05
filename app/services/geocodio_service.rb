@@ -20,10 +20,10 @@ class GeocodioService
 
     def get_url
       response = conn.get do |req|
-        req.params['street'] = address[:street]
-        req.params['city'] = address[:city]
-        req.params['state'] = address[:state]
-        req.params['postal_code'] = address[:postal_code]
+        req.params['street'] = @address[:street]
+        req.params['city'] = @address[:city]
+        req.params['state'] = @address[:state]
+        req.params['postal_code'] = @address[:postal_code]
         req.params['fields'] = 'cd'
       end
       JSON.parse(response.body, symbolize_names: true)[:results]
