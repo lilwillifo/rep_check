@@ -1,5 +1,5 @@
 <div class="card">
-  <%= image_tag src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@representative.bioguide_id}.jpg", class: 'image'  %>
+  <%= link_to image_tag(src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@representative.bioguide_id}.jpg", class: 'image'), "/representatives/#{@representative.district}"  %>
 </br>
   <h1><%= @representative.name %></h1>
   <h2><%= @representative.party %></h2>
