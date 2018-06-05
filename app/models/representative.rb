@@ -19,11 +19,13 @@ class Representative < ApplicationRecord
   end
 
   def anti_party_vote_categories
-    anti_party_vote_categories = {}
-    vote_against_categories.map do |category|
-      anti_party_vote_categories[category] = vote_against_categories.count(category)
+    Rails.cache.fetch("anti-party-#{district}", expires_in: 1.day) do
+      anti_party_vote_categories = {}
+      vote_against_categories.map do |category|
+        anti_party_vote_categories[category] = vote_against_categories.count(category)
+      end
+      anti_party_vote_categories.sort_by{|category, count| count}.reverse.to_h
     end
-    anti_party_vote_categories.sort_by{|category, count| count}.reverse.to_h
   end
 
   private
