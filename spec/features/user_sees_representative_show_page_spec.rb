@@ -90,9 +90,9 @@ describe "As a user" do
 
       within('#summary') do
         expect(page).to have_content('Broke Party Lines on These Issues:')
-        representative.bills_against_categories.each do |category|
+        representative.anti_party_vote_categories.each do |category, count|
           expect(page).to have_content(category.name)
-          expect(page).to have_content('(1 Bill)')
+          expect(page).to have_content("(#{count} Bill)")
         end
       end
     end

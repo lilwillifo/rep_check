@@ -15,9 +15,11 @@ class Representative < ApplicationRecord
   end
 
   def anti_party_vote_categories
+    anti_party_vote_categories = {}
     vote_against_categories.map do |category|
-      {category => vote_against_categories.count(category)}
-    end.uniq
+      anti_party_vote_categories[category] = vote_against_categories.count(category)
+    end
+    anti_party_vote_categories
   end
 
   private
