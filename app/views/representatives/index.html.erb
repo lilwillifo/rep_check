@@ -1,8 +1,10 @@
 <h1 class='center'>Colorado Representatives</h1>
 
-<div class="all_cards">
-  <% @representatives.each do |rep| %>
-    <% @representative = rep %>
-    <%= render partial: 'partials/contact_card' %>
-  <% end %>
-</div>
+<% cache cache_key_for(Representative, 'all-reps') do  %>
+  <div class="all_cards">
+    <% @representatives.each do |rep| %>
+      <% @representative = rep %>
+      <%= render partial: 'partials/contact_card' %>
+    <% end %>
+  </div>
+<% end %>
