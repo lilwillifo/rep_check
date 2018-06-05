@@ -2,11 +2,15 @@ class Representative < ApplicationRecord
   enum party: ["Democrat", "Republican", "Other"]
 
   def website
-    service.house_member_details[:url]
+    Rails.cache.fetch("website-#{district}", expires_in: 7.days) do
+      service.house_member_details[:url]
+    end
   end
 
   def bioguide_id
-    service.house_member_details[:member_id]
+    Rails.cache.fetch("memberid-#{district}", expires_in: 7.days) do
+      service.house_member_details[:member_id]
+    end
   end
 
   def party_percent
