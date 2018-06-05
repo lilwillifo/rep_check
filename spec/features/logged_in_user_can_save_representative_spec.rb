@@ -14,7 +14,7 @@ describe 'As a logged in user' do
       expect(page).to have_content('Added to your watch list!')
       click_link('Unfollow')
       expect(current_path).to eq('/')
-      expect(page).to have_content('Removed from your watch list!')
+      expect(page).to have_content('Removed from your watch list.')
     end
   end
   it 'I can tweet at my representative' do

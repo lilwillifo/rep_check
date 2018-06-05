@@ -100,10 +100,10 @@ describe "As a user" do
 end
 
 describe 'As a user' do
-  xit 'I cant visit a page for a district that doesnt exist' do
+  it 'I cant visit a page for a district that doesnt exist' do
     visit '/representatives/10'
 
     expect(current_path).to eq '/'
-    expect(page).to have_content "Sorry! That link doesn't exist. Try again!"
+    expect(page).to have_content "Sorry! That link doesn't exist."
   end
 end

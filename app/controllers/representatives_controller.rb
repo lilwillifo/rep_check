@@ -5,7 +5,7 @@ class RepresentativesController < ApplicationController
     @categories = Category.all.sort_by(&:name)
     @bills = bills
   rescue Exception
-    flash[:notice] = "Sorry! That link doesn't exist. Try again!"
+    flash[:notice] = "Sorry! That link doesn't exist."
     redirect_to '/'
   end
 
