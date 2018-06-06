@@ -8,7 +8,7 @@ describe 'As a logged in user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit '/representatives/1'
 
-      click_on "👀"
+      find(:xpath, ".//a[i[contains(@class, 'fas fa-eye')]]").click
 
       expect(current_path).to eq("/representatives/#{rep.district}")
       expect(page).to have_content('Added to your watch list!')
