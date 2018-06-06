@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'As a user on the root page' do
   it 'I can enter my address and find my congressional district' do
     VCR.use_cassette('search by address') do
-      Representative.create(name: 'Mike Dao', district: 7)
+      create(:representative, district: 7)
       visit '/'
 
       fill_in :street, with: '1271 S Marshall St'
@@ -17,7 +17,7 @@ describe 'As a user on the root page' do
   end
   it 'I get an error if I enter invalid address' do
     VCR.use_cassette('search by address') do
-      Representative.create(name: 'Mike Dao', district: 7)
+      create(:representative, district: 7)
       visit '/'
 
       fill_in :street, with: 'sdkhf'

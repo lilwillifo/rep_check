@@ -32,26 +32,10 @@ describe Representative, type: :model do
         VCR.use_cassette("find_party_percent") do
           representative = Representative.create(district: 1, name: 'Dianna DeGette', party: 'Democrat', facebook: '', twitter: '')
             category = Category.create(name: 'Something')
-            bill_1 = category.bills.create(bill_id: "hres70-115",
-                               roll_call: 69,
-                               chamber: "House",
-                               year: 2017,
-                               month: 1,
-                               congress: 115,
-                               name: "Providing for consideration of the joint resolution...",
-                               democratic_majority_position: "No",
-                               republican_majority_position: "Yes"
-                             )
-            bill_2 = category.bills.create(bill_id: "hres71-115",
-                                  roll_call: 70,
-                                  chamber: "House",
-                                  year: 2017,
-                                  month: 1,
-                                  congress: 115,
-                                  name: "Another thing",
-                                  democratic_majority_position: "No",
-                                  republican_majority_position: "Yes"
-                                )
+            bill_1 = create(:bill, category_id: category.id)
+
+            bill_2 = create(:bill, category_id: category.id)
+
 
             RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Democrat')
             RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Republican')
@@ -63,26 +47,9 @@ describe Representative, type: :model do
       VCR.use_cassette("find_votes_against_party") do
         representative = Representative.create(district: 1, name: 'Dianna DeGette', party: 'Democrat', facebook: '', twitter: '')
           category = Category.create(name: 'Something')
-          bill_1 = category.bills.create(bill_id: "hres70-115",
-                             roll_call: 69,
-                             chamber: "House",
-                             year: 2017,
-                             month: 1,
-                             congress: 115,
-                             name: "Providing for consideration of the joint resolution...",
-                             democratic_majority_position: "No",
-                             republican_majority_position: "Yes"
-                           )
-          bill_2 = category.bills.create(bill_id: "hres71-115",
-                                roll_call: 70,
-                                chamber: "House",
-                                year: 2017,
-                                month: 1,
-                                congress: 115,
-                                name: "Another thing",
-                                democratic_majority_position: "No",
-                                republican_majority_position: "Yes"
-                              )
+          bill_1 = create(:bill, category_id: category.id)
+          bill_2 = create(:bill, category_id: category.id)
+
 
           RepVotes.create(bill_id: bill_1.id, rep_name: representative.name, vote_with: 'Democrat')
           RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Republican')

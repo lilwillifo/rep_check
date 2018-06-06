@@ -4,13 +4,13 @@ describe 'As a logged in user' do
   let(:user) { create(:user) }
   it 'I can favorite and unfavorite reps' do
     VCR.use_cassette('logged_in_user') do
-      Representative.create(district: 1, name: 'Dianna DeGette')
+      rep = create(:representative)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit '/representatives/1'
 
       click_on "👀"
 
-      expect(current_path).to eq('/representatives/1')
+      expect(current_path).to eq("/representatives/#{rep.district}")
       expect(page).to have_content('Added to your watch list!')
       click_link('Unfollow')
       expect(current_path).to eq('/')
@@ -19,9 +19,9 @@ describe 'As a logged in user' do
   end
   it 'I can tweet at my representative' do
     VCR.use_cassette('logged_in_user') do
-      rep = Representative.create(district: 1, name: 'Dianna DeGette', twitter: 'repdegette')
+      rep = create(:representative)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit '/representatives/1'
+      visit "/representatives/#{rep.district}"
 
       href = "https://twitter.com/intent/tweet?screen_name=#{rep.twitter}"
       expect(page).to have_selector "a[href='#{href}']", text: "Tweet Your Representative!"
@@ -30,7 +30,7 @@ describe 'As a logged in user' do
   end
   it 'I can see my favorites dashboard' do
     VCR.use_cassette('logged_in_user') do
-      rep = Representative.create(district: 1, name: 'Dianna DeGette', bioguide_id: 'abc')
+      rep = create(:representative)
       Favorite.create(representative_id: rep.id, user_id: user.id)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit '/'
