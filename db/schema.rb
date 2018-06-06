@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605234856) do
+ActiveRecord::Schema.define(version: 20180606174207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20180605234856) do
     t.string "rep_name"
     t.bigint "bill_id"
     t.integer "vote_with", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["bill_id"], name: "index_rep_votes_on_bill_id"
   end
 

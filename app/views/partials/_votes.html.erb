@@ -35,7 +35,9 @@
           </th>
         </tr>
 <% end %>
-<% cache "votes-box-for-#{@rep_votes.first.rep_name}-#{@rep_votes.maximum(:updated_at)}"  do%>
+<% if @rep_votes.first %>
+  <% cache "votes-box-for-#{@rep_votes.first.rep_name}-#{@rep_votes.maximum(:updated_at)}"  do%>
+<% end %>
       <% @bills.each do |bill| %>
       <tr id=<%=bill.bill_id%>>
         <%if @rep_votes.find_by(bill_id: bill.id).vote_with == 'Democrat' %>
