@@ -108,6 +108,12 @@ a {
     border-width: 3px;
     border-color: $subheading;
   }
+  #contact {
+    width: 25%;
+  }
+  #rep_summary {
+    width: 60%;
+  }
 
   .sub-card {
     display: flex;
@@ -130,8 +136,8 @@ a {
   }
 
   .image {
-    height: 250px;
-    width: 200px;
+    height: 30%;
+    width: 100%;
      box-shadow: 5px 5px 5px grey;
   }
 
@@ -192,7 +198,7 @@ th {
 
 #votes {
   width:700px;
-  height:300px;
+  height:800px;
   overflow:auto;
 }
 
@@ -215,4 +221,9 @@ th {
   line-height: 10%;
   height:150px;
   overflow:auto;
+}
+
+.eyes {
+  text-decoration: none;
+  font-size: 22px;
 }
