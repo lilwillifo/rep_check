@@ -1,5 +1,5 @@
 <% if current_user && current_user.representatives.include?(@representative) %>
-  <p class='center'><%= link_to "(Unfollow)", representative_path(@representative), method: 'put' %></p>
+  <%= link_to "(Unfollow)", representative_path(@representative), method: 'put' %>
 <% elsif current_user %>
-  <h2 class='center'> <%= link_to "👀", user_favorites_path(current_user, representative_id: @representative.id), method: 'post', class: 'no-decoration', title: 'Keep an Eye on this Rep' %></h2>
+  <%= link_to "(👀)", user_favorites_path(current_user, representative_id: @representative.id), method: 'post', class: 'eyes', title: 'Keep an Eye on this Rep' %>
 <% end %>
