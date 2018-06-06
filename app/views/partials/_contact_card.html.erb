@@ -7,12 +7,11 @@
     <%= render partial: 'partials/favorite'  %>
     <div class="contact-info">
       <% if @representative.facebook.nil? %>
-        <p class='contact-details'><i class="fab fa-facebook-f"></i> N/A</p>
+        <p class='contact-details'><i class="fab fa-facebook-f"></i> N/A
       <% else %>
-        <p class='contact-details'><i class="fab fa-facebook-f"></i> <%= link_to "facebook.com/#{@representative.facebook}", "http://www.facebook.com/#{@representative.facebook}"%></p>
+        <p class='contact-details'><i class="fab fa-facebook-f dem"></i> <%= link_to "Facebook", "http://www.facebook.com/#{@representative.facebook}"%>
       <% end %>
-      <p class='contact-details'><i class="fab fa-twitter"></i> <%= link_to "@#{@representative.twitter}", "http://www.twitter.com/#{@representative.twitter}"%></p>
-      <p class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to "#{@representative.name}", "#{@representative.website}"%></p>
+      <i class="fas fa-external-link-alt dem"></i> <%= link_to "#{@representative.name}", "#{@representative.website}"%></p>
     </div>
     <%= render partial: 'partials/twitter' %>
   </div>
