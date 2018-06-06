@@ -10,8 +10,7 @@ describe "As a user" do
 
       expect(page).to have_content(representative.name)
       expect(page).to have_content(representative.party)
-      expect(page).to have_content(representative.facebook)
-      expect(page).to have_content(representative.twitter)
+      expect(page).to have_link("Facebook")
     end
   end
   it 'I can see their website and image' do
