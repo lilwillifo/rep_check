@@ -1,8 +1,10 @@
-<% cache "#{@representative.name}-#{@representative.updated_at}"  do %>
+<% cache "#{@representative.name}-#{@representative.updated_at}-image"  do %>
   <div class="card" id='contact'>
     <%= link_to image_tag(src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@representative.bioguide_id}.jpg", class: 'image'), "/representatives/#{@representative.district}"  %>
   </br>
+  <% end %>
     <h1><%= @representative.name %><%= render partial: 'partials/favorite'  %></h1>
+  <% cache "#{@representative.name}-#{@representative.updated_at}-contact"  do %>
     <h2><%= @representative.party %></h2>
     <div class="contact-info">
       <% if @representative.facebook.nil? %>
