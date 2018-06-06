@@ -1,6 +1,4 @@
 <% cache do %>
-  <div class='card'>
-    <h1>Votes</h1>
     <div class='sub-card'  id='votes'>
       <table>
         <tr>
@@ -50,11 +48,10 @@
             <td align='center'></td>
           <% end %>
           <td> <%= bill.category.name %> </td>
-          <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.bill_id.chomp('-115') %>: <%= bill.name %> </td>
+          <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.bill_id.chomp('-115').upcase %>: <%= truncate(bill.name,length: 80) %> </td>
           <td align='center'> <%= bill.month %> </td>
           <td align='center'>2017</td>
       </tr>
       <% end %>
     </table>
   </div>
-</div>
