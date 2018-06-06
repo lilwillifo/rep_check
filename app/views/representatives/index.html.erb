@@ -1,5 +1,5 @@
 <h1 class='center'>Colorado Representatives</h1>
-<% cache do %>
+<% cache "#{Representative.maximum(:updated_at)}"do %>
   <div class="all_cards">
     <% @representatives.each do |rep| %>
       <% @representative = rep %>

@@ -1,4 +1,4 @@
-<% cache "#{@representative.name}"  do %>
+<% cache "#{@representative.name}-#{@representative.updated_at}"  do %>
   <div class="card">
     <%= link_to image_tag(src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/#{@representative.bioguide_id}.jpg", class: 'image'), "/representatives/#{@representative.district}"  %>
   </br>

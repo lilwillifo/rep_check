@@ -1,4 +1,4 @@
-<% cache "#{@representative.name}-summary" do %>
+<% cache "#{@representative.name}-#{@representative.updated_at}-summary" do %>
   <h1>Voted with <%= @representative.party %>s on <b><%=@representative.party_percent%>%</b> of Bills</h1>
   <div class="sub-card" id='summary'>
     <h2>Broke Party Lines on These Issues:</h2>

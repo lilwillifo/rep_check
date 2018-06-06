@@ -88,7 +88,6 @@ describe Representative, type: :model do
           RepVotes.create(bill_id: bill_2.id, rep_name: representative.name, vote_with: 'Republican')
 
           expected = {bill_2.category => 1}
-          binding.pry
           expect(representative.anti_party_vote_categories).to eq(expected)
     end
   end
