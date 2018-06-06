@@ -1,9 +1,11 @@
-<h1>Voted with <%= @representative.party %>s on <b><%=@representative.party_percent%>%</b> of Bills</h1>
-<div class="sub-card" id='summary'>
-  <h2>Broke Party Lines on These Issues:</h2>
-    <ul>
-      <% @representative.anti_party_vote_categories.each do |category, count| %>
-      <li><%= link_to category.name, "/representatives/#{@representative.district}?category=#{category.name}" %> (<%= pluralize(count, 'Bill') %>)</li>
-      <% end %>
-    </ul>
-</div>
+<% cache "#{@representative.name}-#{@representative.updated_at}-summary" do %>
+  <h1>Voted with <%= @representative.party %>s on <b><%=@representative.party_percent%>%</b> of Bills</h1>
+  <div class="sub-card" id='summary'>
+    <h2>Broke Party Lines on These Issues:</h2>
+      <ul>
+        <% @representative.anti_party_vote_categories.each do |category, count| %>
+        <li><%= link_to category.name, "/representatives/#{@representative.district}?category=#{category.name}" %> (<%= pluralize(count, 'Bill') %>)</li>
+        <% end %>
+      </ul>
+  </div>
+<% end %>

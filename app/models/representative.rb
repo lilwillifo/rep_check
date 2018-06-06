@@ -2,11 +2,15 @@ class Representative < ApplicationRecord
   enum party: ["Democrat", "Republican", "Other"]
 
   def website
-    service.house_member_details[:url]
+    Rails.cache.fetch("website-#{district}", expires_in: 7.days) do
+      service.house_member_details[:url]
+    end
   end
 
   def bioguide_id
-    service.house_member_details[:member_id]
+    Rails.cache.fetch("memberid-#{district}", expires_in: 7.days) do
+      service.house_member_details[:member_id]
+    end
   end
 
   def party_percent
@@ -15,11 +19,13 @@ class Representative < ApplicationRecord
   end
 
   def anti_party_vote_categories
-    anti_party_vote_categories = {}
-    vote_against_categories.map do |category|
-      anti_party_vote_categories[category] = vote_against_categories.count(category)
+    Rails.cache.fetch("anti-party-#{district}", expires_in: 1.day) do
+      anti_party_vote_categories = {}
+      vote_against_categories.map do |category|
+        anti_party_vote_categories[category] = vote_against_categories.count(category)
+      end
+      anti_party_vote_categories.sort_by{|category, count| count}.reverse.to_h
     end
-    anti_party_vote_categories.sort_by{|category, count| count}.reverse.to_h
   end
 
   private
