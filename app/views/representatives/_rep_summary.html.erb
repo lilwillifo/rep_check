@@ -1,7 +1,7 @@
 <div class='card'>
   <%= render partial: 'partials/summary' %>
-  <div class='sub-card' id='tweets'>
-    <a class="twitter-timeline" data-height="500" data-theme="dark" href="https://twitter.com/<%=@representative.twitter%>">Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <a href="https://twitter.com/intent/tweet?screen_name=<%=@representative.twitter%>" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet Your Representative!</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
+  <%= render partial: 'partials/votes' %>
+  <p>Note: Bills with neither republican or democratic position typically means the representative was not present for the vote.</p>
+  <p>A missed vote does not count as voting against one's party.</p>
+
 </div>

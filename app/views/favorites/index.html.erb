@@ -4,8 +4,5 @@
   <% @representatives.each do |rep| %>
     <% @representative = rep %>
     <%= render partial: 'partials/contact_card' %>
-    <div class='card'>
-      <%= render partial: 'partials/summary' %>
-    </div>
   <% end %>
 </div>

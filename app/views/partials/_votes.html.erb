@@ -1,11 +1,9 @@
 <% cache do %>
-  <div class='card'>
-    <h1>Votes</h1>
     <div class='sub-card'  id='votes'>
       <table>
         <tr>
-          <th><button>Democrat</button></th>
-          <th><button>Republican</button></th>
+          <th><button>Dem</button></th>
+          <th><button>Rep</button></th>
           <th align="left"><div class="dropdown">
               <button>Category</button>
               <div class="dropdown-content">
@@ -22,7 +20,7 @@
               <button>Month</button>
               <div class="dropdown-content">
                 <% (1..12).each do |i| %>
-                  <%= link_to "#{i}", "/representatives/#{@representative.district}?month=#{i}" %>
+                  <%= link_to "#{integer_to_month(i)}", "/representatives/#{@representative.district}?month=#{i}" %>
                 <% end %>
               </div>
             </div>
@@ -50,11 +48,10 @@
             <td align='center'></td>
           <% end %>
           <td> <%= bill.category.name %> </td>
-          <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.bill_id.chomp('-115') %>: <%= bill.name %> </td>
-          <td align='center'> <%= bill.month %> </td>
+          <td><a href="https://www.govtrack.us/congress/bills/115/<%=bill.bill_id.chomp('-115')%>/summary"> <%= bill.bill_id.chomp('-115').upcase %>: <%= truncate(bill.name,length: 50) %> </td>
+          <td align='center'> <%= integer_to_month(bill.month) %> </td>
           <td align='center'>2017</td>
       </tr>
       <% end %>
     </table>
   </div>
-</div>

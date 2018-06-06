@@ -4,6 +4,7 @@
   </br>
     <h1><%= @representative.name %></h1>
     <h2><%= @representative.party %></h2>
+    <%= render partial: 'partials/favorite'  %>
     <div class="contact-info">
       <% if @representative.facebook.nil? %>
         <p class='contact-details'><i class="fab fa-facebook-f"></i> N/A</p>

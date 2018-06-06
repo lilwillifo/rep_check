@@ -1,8 +1,7 @@
 <h1 class='center'> <%= @representative.name %> - Congressional District <%= @representative.district %></h1>
-<%= render partial: 'favorite'  %>
 
 <div class="all_cards">
   <%= render partial: 'partials/contact_card' %>
   <%= render partial: 'rep_summary' %>
-  <%= render partial: 'votes' %>
+  <%= render partial: 'partials/twitter' %>
 </div>
