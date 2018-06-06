@@ -14,5 +14,6 @@
       <p class='contact-details'><i class="fab fa-twitter"></i> <%= link_to "@#{@representative.twitter}", "http://www.twitter.com/#{@representative.twitter}"%></p>
       <p class='contact-details'><i class="fas fa-external-link-alt"></i> <%= link_to "#{@representative.name}", "#{@representative.website}"%></p>
     </div>
+    <%= render partial: 'partials/twitter' %>
   </div>
 <% end %>
