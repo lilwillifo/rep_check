@@ -198,7 +198,7 @@ th {
 
 #votes {
   width:700px;
-  height:700px;
+  height:800px;
   overflow:auto;
 }
 
@@ -221,4 +221,8 @@ th {
   line-height: 10%;
   height:150px;
   overflow:auto;
+}
+
+.no-decoration {
+  text-decoration: none;
 }
