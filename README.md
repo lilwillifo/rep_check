@@ -1,6 +1,6 @@
 # RepCheck
 
-* Users can find their congressional district by clicking on their location on a map or  entering their address. Currently this app is only built with Colorado data. Users are redirected to a profile page for their Congressional representative. The representative's contact info, recent tweets, and voting summary are listed here. Users can see how often their representative voted differently than their party - and on what types of issues. If there are particular reps that a user wants to keep an eye on, a logged in user can add reps to their favorites list to easily find them again.
+* Users can find their congressional district by clicking on their location on a map or  entering their address to find their district. Currently this app is only built with Colorado data. Users are redirected to a profile page for their Congressional representative. The representative's contact info, recent tweets, and voting summary are listed here. Users can see how often their representative voted differently than their party - and on what types of issues. If there are particular reps that a user wants to keep an eye on, a logged in user can add reps to their favorites list to easily find them again.
 * The deployed version can be found here: [RepCheck](https://rep-check.herokuapp.com/)
 * The spec for this project can be found here: [Project Spec](http://backend.turing.io/module3/projects/self_directed_project)
 
@@ -16,7 +16,7 @@ Set up the database:
 `$ rake db:migrate`
 `$ rake db:seed`
 
-Now go grab a coffee because seeding takes a minute :) 
+Now go grab a coffee because seeding takes a minute :)
 Start up your rails server with `rails s`
 and open localhost:3000 in your browser.
 
