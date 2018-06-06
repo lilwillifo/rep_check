@@ -93,7 +93,7 @@ a {
   .all_cards {
     display: flex;
     flex-direction: row;
-    margin: 50px;
+    margin: 0 50px 50px 0;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -130,8 +130,8 @@ a {
   }
 
   .image {
-    height: 300px;
-    width: 250px;
+    height: 250px;
+    width: 200px;
   }
 
   ul{
@@ -191,7 +191,7 @@ th {
 
 #votes {
   width:700px;
-  height:350px;
+  height:300px;
   overflow:auto;
 }
 
