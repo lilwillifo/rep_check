@@ -44,12 +44,12 @@ describe "As a user" do
 
         click_on category.name
 
-        expect(page).to have_content('Providing for consideration of the joint resolution')
+        expect(page).to have_content('Providing for consideration of ')
       end
       click_on category2.name
       expect(current_url).to include '/representatives/1?category=Another%20Category'
       expect(page).to_not have_content('Providing for consideration of the joint resolution')
-      click_on '2'
+      click_on 'February'
       expect(current_url).to include '/representatives/1?month=2'
       expect(page).to_not have_content('Providing for consideration of the joint resolution')
 

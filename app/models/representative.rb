@@ -19,7 +19,7 @@ class Representative < ApplicationRecord
   end
 
   def anti_party_vote_categories
-    Rails.cache.fetch("anti-party-#{district}", expires_in: 1.day) do
+    Rails.cache.fetch("votes-against-party-#{district}", expires_in: 1.day) do
       anti_party_vote_categories = {}
       vote_against_categories.map do |category|
         anti_party_vote_categories[category] = vote_against_categories.count(category)
@@ -38,9 +38,17 @@ class Representative < ApplicationRecord
       RepVotes.where(rep_name: "#{name}")
     end
 
+    def opposing_party
+      if party == 'Democrat'
+        'Republican'
+      elsif party == 'Republican'
+        'Democrat'
+      end
+    end
+
     def votes_against_party
       votes.select do |vote|
-        !party.include?(vote.vote_with)
+        opposing_party.include?(vote.vote_with)
       end
     end
 

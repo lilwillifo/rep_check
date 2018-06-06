@@ -8,7 +8,7 @@ describe 'As a logged in user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit '/representatives/1'
 
-      find(:xpath, ".//a[i[contains(@class, 'fas fa-eye')]]").click
+      click_on "👀"
 
       expect(current_path).to eq('/representatives/1')
       expect(page).to have_content('Added to your watch list!')
@@ -39,7 +39,6 @@ describe 'As a logged in user' do
       expect(current_path).to eq('/favorites')
       expect(page).to have_link(rep.name)
       expect(page).to have_content(rep.party)
-      expect(page).to have_content(rep.party_percent)
     end
   end
   it 'a non logged in user can not see favorites' do
