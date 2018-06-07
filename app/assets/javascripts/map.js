@@ -126,7 +126,7 @@ map.on('load', function () {
     });
   });
 
-  var district1 = new mapboxgl.Popup({closeButton: false})
+  var district1 = new mapboxgl.Popup({closeButton: true})
         .setLngLat([-104.9903, 39.7392])
         .setHTML("<a href='representatives/1'>1</a>")
         .addTo(map);
