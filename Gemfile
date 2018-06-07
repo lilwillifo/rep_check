@@ -29,7 +29,6 @@ gem 'figaro'
 gem 'simplecov', require: false, group: :test
 gem 'omniauth-twitter'
 gem 'newrelic_rpm'
-gem 'redis-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
