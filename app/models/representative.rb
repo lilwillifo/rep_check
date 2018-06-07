@@ -28,6 +28,14 @@ class Representative < ApplicationRecord
     end
   end
 
+  def opposing_party
+    if party == 'Democrat'
+      'Republican'
+    elsif party == 'Republican'
+      'Democrat'
+    end
+  end
+
   private
 
     def service
@@ -36,14 +44,6 @@ class Representative < ApplicationRecord
 
     def votes
       RepVotes.where(rep_name: "#{name}")
-    end
-
-    def opposing_party
-      if party == 'Democrat'
-        'Republican'
-      elsif party == 'Republican'
-        'Democrat'
-      end
     end
 
     def votes_against_party

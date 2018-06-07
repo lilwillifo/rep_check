@@ -1,4 +1,4 @@
-<% cache do %>
+<% cache 'vote-headers' do %>
     <div class='sub-card'  id='votes'>
       <table>
         <tr>
@@ -35,15 +35,12 @@
           </th>
         </tr>
 <% end %>
-<% if @rep_votes.first %>
-  <% cache "votes-box-for-#{@rep_votes.first.rep_name}-#{@rep_votes.maximum(:updated_at)}"  do%>
-<% end %>
-      <% @bills.each do |bill| %>
+      <% @bills_and_votes.each do |bill, vote| %>
       <tr id=<%=bill.bill_id%>>
-        <%if @rep_votes.find_by(bill_id: bill.id).vote_with == 'Democrat' %>
+        <%if vote == 'Democrat' %>
             <td align='center'><i class="far fa-check-square fa-3x dem"></i></td>
             <td align='center'></td>
-          <% elsif @rep_votes.find_by(bill_id: bill.id).vote_with == 'Republican' %>
+          <% elsif vote == 'Republican' %>
             <td align='center'></td>
             <td align='center'><i class="far fa-check-square fa-3x rep"></i></td>
           <% else %>
@@ -55,7 +52,6 @@
           <td align='center'> <%= integer_to_month(bill.month) %> </td>
           <td align='center'>2017</td>
       </tr>
-      <% end %>
       <% end %>
     </table>
   </div>
