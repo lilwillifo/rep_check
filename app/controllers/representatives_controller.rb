@@ -40,17 +40,27 @@ class RepresentativesController < ApplicationController
       category = Category.find_by_name(params[:category])
       @bills = Bill.where(category_id: category.id)
     elsif params[:month]
-        @bills = Bill.where(month: params[:month])
+      @bills = Bill.where(month: params[:month])
     else
       @bills = Bill.all
     end
   end
 
   def bills_and_votes
-    @rep_votes = RepVotes.where(rep_name: "#{@representative.name}")
+    @rep_votes = RepVotes.where(rep_name: @representative.name)
     bills_and_votes = {}
     bills.each do |bill|
       bills_and_votes[bill] = @rep_votes.find_by(bill_id: bill.id).vote_with
+    end
+    bills_and_votes
+    if params[:party]
+      opposing_bills_and_votes = {}
+      bills_and_votes.each do |bill, vote|
+        if vote == @representative.opposing_party
+          opposing_bills_and_votes[bill] = vote
+        end
+      end
+      return opposing_bills_and_votes
     end
     bills_and_votes
   end

@@ -35,9 +35,6 @@
           </th>
         </tr>
 <% end %>
-<% if @rep_votes.first %>
-  <% cache "votes-box-for-#{@rep_votes.first.rep_name}-#{@rep_votes.maximum(:updated_at)}" do %>
-<% end %>
       <% @bills_and_votes.each do |bill, vote| %>
       <tr id=<%=bill.bill_id%>>
         <%if vote == 'Democrat' %>
@@ -55,7 +52,6 @@
           <td align='center'> <%= integer_to_month(bill.month) %> </td>
           <td align='center'>2017</td>
       </tr>
-      <% end %>
       <% end %>
     </table>
   </div>
