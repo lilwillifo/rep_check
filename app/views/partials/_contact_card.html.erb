@@ -4,7 +4,7 @@
   </br>
   <% end %>
     <h1><%= @representative.name %><%= render partial: 'partials/favorite'  %></h1>
-  <% cache "#{@representative.name}-#{@representative.updated_at}-contact"  do %>
+    <% cache "#{@representative.name}-#{@representative.updated_at}-contact"  do %>
     <h2><%= @representative.party %></h2>
     <div class="contact-info">
       <% if @representative.facebook.nil? %>
